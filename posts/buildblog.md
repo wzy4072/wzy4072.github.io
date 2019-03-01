@@ -2,7 +2,7 @@
 
 ### 搭建前提，要知道github博客的是Jekyll 语法，会用markdown语法
 
-### 方案有很多 我来个最简单的
+### 方案有很多,我来个最简单的,从开始到结束超过三分钟了我给你直播吃鞋垫
 
 参考页面
 [GitHub Pages Basics](https://help.github.com/en/categories/github-pages-basics)
@@ -12,9 +12,6 @@
 
 第二步 进入settings 拉到最后 点击 ``` Choose a theme ``` 选择一个主题
 
-第三部 大功告成 访问https://<username>.github.io/ 就可以了
+第三部 大功告成 访问 ``` https://\<username>.github.io/  ```就可以了
 
-博客嘛，肯定要新增内容的，新增起来也比较傻，但是够用了
-
-1. 根目录下新建一个 myfirstBlog.md
-2. index.md 新增一行   \[myfirstBlog\](myfirstBlog.md)
+博客嘛，肯定要新增内容的，新增起来也比较傻，但是够用了,比如我，index.md下新增个链接，相对位置放自己的新文件就行啦，可以参考我的[库](https://github.com/wzy4072/wzy4072.github.io)
