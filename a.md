@@ -18,4 +18,4 @@
 博客嘛，肯定要新增内容的，新增起来也比较傻，但是够用了
 
 1. 根目录下新建一个 myfirstBlog.md
-2. index.md 新增一行   [myfirstBlog](myfirstBlog.md)
+2. index.md 新增一行   \[myfirstBlog\](myfirstBlog.md)
