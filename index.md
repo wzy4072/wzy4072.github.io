@@ -1,6 +1,5 @@
-﻿## Welcome to my GitHub Pages
+## [welcome](posts/welcome.md)
+old index.md
 
-#### [welcome](posts/welcome.md)
-
-
-#### [how to buildblog in one minit](posts/buildblog.md)
+## [how to buildblog in one minit](posts/buildblog.md)
+my first blog;show you how to build a blog like me.
