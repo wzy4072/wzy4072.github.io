@@ -1,4 +1,4 @@
-## [welcome](posts/welcome.md)
+### [welcome](posts/welcome.md)
 old index.md
 
 
