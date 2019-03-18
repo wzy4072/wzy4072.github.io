@@ -15,3 +15,5 @@
 第三部 大功告成 访问 ``` https://\<username>.github.io/  ```就可以了
 
 博客嘛，肯定要新增内容的，新增起来也比较傻，但是够用了,比如我，index.md下新增个链接，相对位置放自己的新文件就行啦，可以参考我的[库](https://github.com/wzy4072/wzy4072.github.io)
+
+估计这么傻的东西会被部分人所不齿，所以呢，我当前用的这个主题也是可以扩展的[cayman](https://github.com/pages-themes/cayman)想改什么自己捣鼓去，反正博客已经能用了
