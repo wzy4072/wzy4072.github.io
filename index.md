@@ -16,4 +16,6 @@ set npm or yarn registry
 ### [display:inline-block; space in items?](posts/inlineBlock.md)
 many ways to solve the problem of space after inline-block
 
+### [errors i had meet](posts/errors.md)
+
 
