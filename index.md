@@ -10,4 +10,10 @@ show you how to use markdown to write an article
 #### [vue .stop & .native](posts/vueModifier.md)
 to help you understand vue modifier stop and native
 
+### [set npm or yarn registry](posts/setRegistry.md)
+set npm or yarn registry
+
+### [display:inline-block; space in items?](posts/inlineBlock.md)
+many ways to solve the problem of space after inline-block
+
 
