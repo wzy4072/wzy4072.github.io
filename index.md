@@ -18,4 +18,6 @@ many ways to solve the problem of space after inline-block
 
 ### [errors i had meet](posts/errors.md)
 
+### [linux commonds](posts/linuxCommonds.md)
+
 
