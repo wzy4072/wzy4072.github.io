@@ -20,4 +20,6 @@ many ways to solve the problem of space after inline-block
 
 ### [linux commonds](posts/linuxCommonds.md)
 
+### [random demo](posts/random.html)
+
 
