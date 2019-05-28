@@ -8,6 +8,8 @@
 
 ### [vue modifier .stop & .native](posts/vueModifier.md)
 
+### [对象的扩展 密封 冻结区别 isExtensible isSealed isFrozen](posts/isExtensible.md) 
+
 ### [vue 锚点 && 滚动监听](post/anchorPoint.md)
 
 ### [set npm or yarn registry](posts/setRegistry.md)
