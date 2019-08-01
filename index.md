@@ -19,3 +19,7 @@
 ### [linux commonds](posts/linuxCommonds.md)
 
 ### [errors i had meet](posts/errors.md)
+
+### [vue project quick develop](posts/VueQuickDevelopment.md)
+
+
