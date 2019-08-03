@@ -22,4 +22,7 @@
 
 ### [vue project quick develop](posts/VueQuickDevelopment.md)
 
+### [git notebook](posts/gitNotebook.md)
+
+### [data type; obj  binary ?](posts/dataType.md)
 
