@@ -2,6 +2,8 @@
 
 ### [how to build you github blog like me in one minute](posts/buildblog.md)
 
+### [ Vue Higher order play (jeecg-boot) ](posts/jeecg-boot.md)
+
 ### [markdown ?! easy](posts/markdown.md)
 
 ### [base of RegExp](posts/regBase.md)
@@ -25,4 +27,9 @@
 ### [git notebook](posts/gitNotebook.md)
 
 ### [data type; obj  binary ?](posts/dataType.md)
+
+### [ event ](posts/event.md)
+
+### [ financial report ](posts/financialReport.md)
+
 
