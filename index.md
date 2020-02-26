@@ -34,3 +34,5 @@
 
 ### [ nvm commonds ](posts/nvm.md)
 
+### [ vue入门练习指南 ](posts/vueGuide.md)
+
