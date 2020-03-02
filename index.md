@@ -24,6 +24,8 @@
 
 ### [vue project quick develop](posts/VueQuickDevelopment.md)
 
+### [cli3 eslint 设置 关闭](posts/eslint.md)
+
 ### [git notebook](posts/gitNotebook.md)
 
 ### [data type; obj  binary ?](posts/dataType.md)
