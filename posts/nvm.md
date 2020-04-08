@@ -6,7 +6,13 @@
 安装：
  > [nvm-setup.zip](https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.zip) （免配置 推荐） 
 
+### 常见问题
 
+通过nvm安装其他版本 容易超时 提示安装了 实际上没有安装成功。
+在nvm的安装路径下找到settings.txt
+添加
+node_mirror:npm.taobao.org/mirrors/node/
+npm_mirror:npm.taobao.org/mirrors/npm/
 
 ### 常见命令
 

@@ -34,7 +34,7 @@
 
 ### [ financial report ](posts/financialReport.md)
 
-### [ nvm commonds ](posts/nvm.md)
+### [ nvm node 版本管理 ](posts/nvm.md)
 
 ### [ vue入门练习指南 ](posts/vueGuide.md)
 
