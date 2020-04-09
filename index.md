@@ -6,7 +6,7 @@
 
 ### [markdown ?! easy](posts/markdown.md)
 
-### [base of RegExp](posts/regBase.md)
+### [ 正则基本单元 RegExp](posts/regBase.md)
 
 ### [vue modifier .stop & .native](posts/vueModifier.md)
 
