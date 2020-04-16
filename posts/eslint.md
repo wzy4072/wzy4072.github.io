@@ -1,3 +1,64 @@
+> ESlint：javascript代码检测工具，可以配置每次保存时格式化js，但每次保存只格式化一点点，你得连续按住Ctrl+S好几次,才格式化好，自行体会~~
+
+ 
+
+> vetur：可以格式化html、标准css（有分号 、大括号的那种）、标准js（有分号 、双引号的那种）、vue文件，
+但是！格式化的标准js文件不符合ESlint规范，会给你加上双引号、分号等，
+
+ 
+
+>  Prettier - Code formatter：只关注格式化，并不具有eslint检查语法等能力，只关心格式化文件(最大长度、混合标签和空格、引用样式等)，包括JavaScript · Flow · TypeScript · CSS · SCSS · Less · JSX · Vue · GraphQL · JSON · Markdown
+
+
+我的某银行项目配置
+ 
+记得 使用了插件 就要把 Format On Save 关掉，否则格式化两次 产生 冲突报错
+
+
+```
+{
+    // vscode默认启用了根据文件类型自动设置tabsize的选项
+    "editor.detectIndentation": false,
+    // 重新设定tabsize
+    "editor.tabSize": 4,
+    // #每次保存的时候将代码按eslint格式进行修复
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    // 添加 vue 支持
+    // "eslint.validate": [
+    //     "javascript",
+    //     "javascriptreact",
+    //     {
+    //         "language": "vue",
+    //         "autoFix": true
+    //     }
+    // ],
+    //  #让prettier使用eslint的代码格式进行校验 
+    "prettier.eslintIntegration": true,
+    //  #去掉代码结尾的分号 
+    "prettier.semi": false,
+    //  #使用带引号替代双引号 
+    "prettier.singleQuote": true,
+    //  #让函数(名)和后面的括号之间加个空格
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    // #这个按用户自身习惯选择 
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    // #让vue中的js按编辑器自带的ts格式进行格式化 
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    "vetur.format.defaultFormatterOptions": {
+        "js-beautify-html": {
+            "wrap_attributes": "force-aligned"
+            // #vue组件中html代码格式化样式
+        }
+    },
+    "editor.tokenColorCustomizations": null,
+    "files.associations": {},
+}
+
+```
+
+
 详细解读可参考[vue-cli配置官方文档](https://cli.vuejs.org/zh/config/#pages)
 
 或者[vue-cli-eslint github说明书](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint)
