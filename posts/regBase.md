@@ -190,3 +190,11 @@ Array.prototype.ins_reg = function (r) {
 ['str1','str2'].ins_reg(/^[0-9]$/)
 
 ```
+
+### 其他
+```
+var data = 'windows 98 is ok';
+data.match(/windows (?=\d+)/);  // ["windows "]
+data.match(/windows (?:\d+)/);  // ["windows 98"]
+data.match(/windows (\d+)/);    // ["windows 98", "98"]
+```
