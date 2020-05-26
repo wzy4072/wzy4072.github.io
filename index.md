@@ -2,11 +2,15 @@
 
 ### [how to build you github blog like me in one minute](posts/buildblog.md)
 
+### [ java 基础](posts/200514.md)
+
 ### [ Vue Higher order play (jeecg-boot) ](posts/jeecg-boot.md)
 
 ### [ github search ](posts/200507.md)
 
 ### [markdown ?! easy](posts/markdown.md)
+
+### [ idea 快捷键](posts/200526.md)
 
 ### [ 正则  RegExp](posts/regBase.md)
 
