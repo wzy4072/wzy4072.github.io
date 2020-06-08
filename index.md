@@ -4,6 +4,8 @@
 
 ### [ java 基础](posts/200514.md)
 
+### [ 数据库 mysql ](posts/200603.md)
+
 ### [ Vue Higher order play (jeecg-boot) ](posts/jeecg-boot.md)
 
 ### [ github search ](posts/200507.md)
@@ -32,7 +34,7 @@
 
 ### [cli3 eslint 设置 关闭](posts/eslint.md)
 
-### [git notebook](posts/gitNotebook.md)
+### [git ](posts/gitNotebook.md)
 
 ### [data type; obj  binary ?](posts/dataType.md)
 
