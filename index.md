@@ -16,6 +16,8 @@
 
 ### [ 正则  RegExp](posts/regBase.md)
 
+### [ 身份证号校验 算法 精准校验 ](posts/20200618.md)
+
 ### [vue modifier .stop & .native](posts/vueModifier.md)
 
 ### [对象的扩展 密封 冻结区别 isExtensible isSealed isFrozen](posts/isExtensible.md) 
