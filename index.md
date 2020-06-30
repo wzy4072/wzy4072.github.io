@@ -14,8 +14,6 @@
 
 ### [ idea 快捷键](posts/200526.md)
 
-### [ vscode 格式化设置 ](posts/200630.md)
-
 ### [ 正则  RegExp](posts/regBase.md)
 
 ### [ 身份证号校验 算法 精准校验 ](posts/20200618.md)
