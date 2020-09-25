@@ -46,6 +46,8 @@
 
 ### [linux commonds](posts/linuxCommonds.md)
 
+### [ 打印 ](posts/200921.md)
+
 ### [errors i had meet](posts/errors.md)
 
 ### [ financial report ](posts/financialReport.md)
