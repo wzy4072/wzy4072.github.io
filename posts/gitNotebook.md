@@ -3,22 +3,27 @@
 ### ======================================基本操作======================================
 ```
 $ git checkout -b dev 		// 创建并切换分支
-$ git branch dev 		// 创建分支
-$ git checkout dev		// 切换分支
+$ git branch dev 		    // 创建分支
+$ git checkout dev		    // 切换分支
+
+$ git clone git@github.com:wzy4072/wzy4072.github.io.git    //  拉取指定分支 1 下载默认分支
+$ git  branch -a                                            //  拉取指定分支 2 查看远程分支
+$ git co -b dev origin/dev                                  //  拉取指定分支 3 新建 并下载新的分支
+
 $ git diff readme.txt 
 $ git add .
 $ git add src
 $ git add readme.md
 $ git commit -m 'init the object'
-$ git merge dev						// 删除分支后，会丢掉分支信息
+$ git merge dev				// 删除分支后，会丢掉分支信息
 $ git merge --no-ff -m "merge with no-ff" dev		// merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息(推荐)
 $ git branch -d dev   		// 删除分支
-$ git branch 			// 查看分支
+$ git branch 			    // 查看分支
 $ git pull
 
-$ git push			//$ git push origin master $ git push origin dev
+$ git push			        //$ git push origin master $ git push origin dev
 
-$ git log			// 提交日志
+$ git log			        // 提交日志
 $ git log --pretty=oneline	// 提交日志
 $ git branch -m oldname newname // 修改分支名称
 

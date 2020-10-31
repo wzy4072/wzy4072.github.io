@@ -39,7 +39,7 @@
 
 ```
 
-### fileTypes
+### 上传文件 格式限制时  fileTypes
 
 ```
  const types = [
@@ -53,4 +53,30 @@
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
       ];
 
+```
+
+### 自定义渲染table列
+```
+// antd
+ columns: [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          sorter: true,
+          width: '20%',
+          customRender: e => {
+            return this.$createElement(
+              'span',
+              {
+                style: {
+                  color: 'red'
+                }
+              },
+              e
+            )
+          }
+        },
+// element 
+// 渲染节点可使用$crementElement
+ :formatter="(row, column, cellValue)=> $tools.formatDateTime(cellValue)"
 ```

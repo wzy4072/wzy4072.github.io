@@ -10,9 +10,12 @@
 >  Prettier - Code formatter：只关注格式化，并不具有eslint检查语法等能力，只关心格式化文件(最大长度、混合标签和空格、引用样式等)，包括JavaScript · Flow · TypeScript · CSS · SCSS · Less · JSX · Vue · GraphQL · JSON · Markdown
 
 
-我的某银行项目配置
  
 记得 使用了插件 就要把 Format On Save 关掉，否则格式化两次 产生 冲突报错
+
+参考配置
+
+vscode 文件>首选项>设置 常用设置项最后有个 settings.json（ctrl + , 快速打开设置）
 
 
 ```
