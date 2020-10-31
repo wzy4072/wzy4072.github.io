@@ -8,6 +8,8 @@
 
 ### [ github search ](posts/200507.md)
 
+### [ Mac配置php开发环境 ](posts/200815.md)
+
 ### [markdown ?! easy](posts/markdown.md)
 
 ### [ idea 快捷键](posts/200526.md)
