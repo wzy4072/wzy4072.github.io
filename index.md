@@ -18,7 +18,7 @@
 
 ### [set npm or yarn registry](posts/setRegistry.md)
 
-### [ Ngxin 配置 ](post/200814.md)
+### [ Ngxin 配置 ](posts/200814.md)
 
 ### [ github 查找技巧 ](posts/200507.md)
 
