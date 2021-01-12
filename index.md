@@ -8,6 +8,8 @@
 
 ### [ Vue 二级用法 (jeecg-boot) ](posts/jeecg-boot.md)
 
+### [ Vue 虚拟Dom VNode ](posts/210108.md)
+
 ### [ vue  .stop & .native](posts/vueModifier.md)
 
 ### [vue 锚点 && 滚动监听](post/anchorPoint.md)
@@ -23,6 +25,9 @@
 ### [ github 查找技巧 ](posts/200507.md)
 
 ### [ markdown  语法速览 ](posts/markdown.md)
+
+### [ typeScript ](posts/210112.md)
+
 
 ### [ js 正则  RegExp](posts/regBase.md)
 
@@ -53,5 +58,7 @@
 ### [ financial report ](posts/financialReport.md)
 
 ### [ vue入门练习指南 ](posts/vueGuide.md)
+
+### [ 面试题总结 ](posts/201202.md)
 
 ### [welcome](posts/welcome.md)
