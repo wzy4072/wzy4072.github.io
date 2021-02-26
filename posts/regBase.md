@@ -198,3 +198,16 @@ data.match(/windows (?=\d+)/);  // ["windows "]
 data.match(/windows (?:\d+)/);  // ["windows 98"]
 data.match(/windows (\d+)/);    // ["windows 98", "98"]
 ```
+
+
+### 动态正则
+
+```
+var reg = new RegExp("\"" + oldAttr + "\"" + ":", "gim");
+
+
+gim代表：
+g-global 全局搜索，即不是搜到一个匹配就返回，而是搜出全部匹配 一般返回是一个数组
+i- 忽略大小写搜索
+m-多行搜索，以前限于计算机能力 搜索只在每行行首到行尾间进行   比如一个匹配结果在两行的换行处 就会不匹配了  添加这个 就同时搜索换行的地方
+```
