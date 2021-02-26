@@ -6,13 +6,10 @@
 
 ### [ Vue 一级开发 ](posts/VueQuickDevelopment.md)
 
-<<<<<<< HEAD
 ### [ Mac配置php开发环境 ](posts/200815.md)
 
 ### [markdown ?! easy](posts/markdown.md)
-=======
 ### [ Vue 二级用法 (jeecg-boot) ](posts/jeecg-boot.md)
->>>>>>> cb23fd597259863865c010af9e119c3fffcbd46a
 
 ### [ vue  .stop & .native](posts/vueModifier.md)
 
