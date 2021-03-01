@@ -6,6 +6,9 @@
 
 ### [ Vue 一级开发 ](posts/VueQuickDevelopment.md)
 
+### [ Mac配置php开发环境 ](posts/200815.md)
+
+### [markdown ?! easy](posts/markdown.md)
 ### [ Vue 二级用法 (jeecg-boot) ](posts/jeecg-boot.md)
 
 ### [ Vue 虚拟Dom VNode ](posts/210108.md)
