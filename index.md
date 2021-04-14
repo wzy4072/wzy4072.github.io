@@ -54,6 +54,8 @@
 
 ### [linux commonds](posts/linuxCommonds.md)
 
+### [linux bookNotes](posts/210414.md)
+
 ### [ 打印 ](posts/200921.md)
 
 ### [errors i had meet](posts/errors.md)
