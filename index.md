@@ -68,4 +68,6 @@
 
 ### [ 从输入URL到页面加载发生了什么 ](posts/210220.md)
 
+### [ 国外软件下载太慢？ 来这里 ](posts/21041402.md)
+
 ### [welcome](posts/welcome.md)
