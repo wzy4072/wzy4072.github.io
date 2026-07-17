@@ -154,7 +154,7 @@ ul li {
 }
 
 .section-title {
-  color: #022B69;
+  color: #014ea6;
   letter-spacing: 1px;
   margin: 0 0 20px;
   text-transform: uppercase;
@@ -270,7 +270,7 @@ ul li {
   }
 
   .section-title {
-    color: #022B69;
+    color: #014ea6;
     letter-spacing: 1px;
     margin: 0 0 60px;
     text-transform: uppercase;
@@ -324,7 +324,7 @@ ul li {
 }
 
 .navbar-solid {
-  background-color: #022B69 !important;
+  background-color: #014ea6 !important;
   padding: 0 !important;
   -webkit-transition: all 0.2s linear 0s;
   transition: all 0.2s linear 0s;
@@ -406,7 +406,8 @@ ul li {
 @media (min-width: 768px) {
   .navbar-custom {
     /* background-color: transparent; */
-    background-color: rgba(2, 43, 105, 0.5);
+    /* background-color: rgba(2, 43, 105, 0.5); */
+    background-color: rgba(1, 78, 166, 0.5);
     /* background-color: rgba(0, 0, 0, 0.4); */
 
 
@@ -452,7 +453,7 @@ ul li {
  */
 .speaker {
   text-align: center;
-  color: #022B69;
+  color: #014ea6;
   text-transform: uppercase;
   margin: 25px 0;
 }
@@ -585,8 +586,8 @@ ul li {
 
 .faq .panel-default>.panel-heading {
   color: #FFF;
-  background-color: #022B69;
-  border-color: #022B69;
+  background-color: #014ea6;
+  border-color: #014ea6;
   border-radius: 0;
   padding: 0;
 }
@@ -657,7 +658,7 @@ ul li {
  * 7.0 Site-footer
  */
 .site-footer {
-  background-color: #022B69;
+  background-color: #014ea6;
   color: #fff;
   text-align: center;
   padding: 30px 0;
