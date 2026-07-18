@@ -370,7 +370,7 @@ ul li {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
 .site-header .intro {
@@ -465,6 +465,11 @@ ul li {
 
 .speaker p {
   margin-bottom: 5px;
+}
+.speaker img {
+
+  width:360px;
+  height:360px;
 }
 
 .speaker img:hover {
