@@ -9,7 +9,7 @@ echo.
 
 set SOURCE=assets\images\gallery
 set TARGET=assets\images\galleryZip
-set MAX_SIZE_KB=300
+set MAX_SIZE_KB=100
 set MAX_DIM=1200
 
 echo 源目录: %SOURCE%
