@@ -261,13 +261,17 @@
   <!-- 控制栏 -->
   <div class="gallery-controls">
     <div>
-      <label for="colsSelect">Columns:</label>
+      <label for="colsSelect" style="color:red">Click here to switch the number of items displayed per page</label>
+      <!-- <label for="colsSelect" style="color:red">Columns:</label> -->
       <select id="colsSelect">
         <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4" selected>4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
+        <option value="4">4</option>
+        <option value="6" >6</option>
+        <option value="8" >8</option>
+        <option value="10" selected>10</option>
+        <option value="12">12</option>
+        <option value="16">16</option>
+        <option value="20">20</option>
       </select>
     </div>
     <div class="gallery-info">
@@ -295,7 +299,7 @@
       // ---------- 配置 ----------
       const BASE_PATH = 'assets/images/galleryZip/';  // 改为 galleryZip
       const ORIGINAL_PATH = 'assets/images/gallery/'; // 新增原始图片路径
-      const TOTAL_IMAGES = 535;
+      const TOTAL_IMAGES = 2196;
       const BATCH_SIZE = 30;
       const FILE_PATTERN = 'gallery-{num}.jpeg';    // 改为 .jpg (因为压缩后统一为 jpg)
 
