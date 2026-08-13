@@ -20,7 +20,7 @@
     body {
       background: #f5f7fa;
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      padding: 20px;
+      padding: 0;
       min-height: 100vh;
     }
 
@@ -34,7 +34,8 @@
     .video-section .section-title {
       font-weight: 600;
       color: #014ea6;
-      margin-bottom: 8px;
+      margin-bottom: 24px;
+      margin-top: 16px;
       border-left: 4px solid #014ea6;
       padding-left: 16px;
       display: inline-block;
@@ -261,7 +262,7 @@
     /* 响应式微调 */
     @media (max-width: 640px) {
       body {
-        padding: 12px;
+        padding: 0;
       }
 
       .card-cover .play-btn {
@@ -273,6 +274,28 @@
       .card-body .product-name {
         font-size: 16px;
       }
+    }
+
+    .recommend-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #ff6b35;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 14px 4px 10px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+      z-index: 2;
+      letter-spacing: 0.3px;
+    }
+
+    .recommend-badge i {
+      font-size: 16px;
     }
   </style>
 </head>
@@ -314,7 +337,7 @@
         <div class="col-md-12">
           <h3 class="section-title">🎬Selected Videos</h3>
 
-          <div style="float: right;">
+          <div style="float: right;line-height: 64px;">
             <!-- <i class="ion-ios-videocam" style="margin-right:6px;"></i> -->
             For more videos, please visit
             <a href="https://www.tiktok.com/@wzy4072" target="_blank" style="color: #00337a;font-weight: 600;">TikTok
@@ -325,16 +348,54 @@
             </a>
 
           </div>
-          <!-- 底部辅助 -->
-          <div class="footer-note">
 
-
-          </div>
 
         </div>
       </div>
 
       <div class="video-grid" id="videoGrid">
+
+        <div class="video-card" data-tiktok="https://www.youtube.com/watch?v=5R5aNoZHHoI">
+          <div class="card-cover">
+            <img class="cover-img" src="assets/images/viedoimg/5R5aNoZHHoI.png" alt="" loading="lazy">
+            <div class="play-btn"><i class="ion-ios-play"></i></div>
+            <div class="recommend-badge"><i class="ion-thumbsup"></i> </div>
+          </div>
+          <div class="card-body">
+            <h4 class="product-name">
+              Received the package and recorded the unpacking video.
+            </h4>
+            <div class="product-desc">收到快递，录制开箱视频</div>
+          </div>
+        </div>
+
+
+        <div class="video-card" data-tiktok="https://www.tiktok.com/@thearchivestudio.la/video/7641806826920496415">
+          <div class="card-cover">
+            <img class="cover-img" src="assets/images/viedoimg/7641806826920496415.png" alt="" loading="lazy">
+            <div class="play-btn"><i class="ion-ios-play"></i></div>
+            <div class="recommend-badge"><i class="ion-thumbsup"></i> </div>
+          </div>
+          <div class="card-body">
+            <h4 class="product-name">
+              Received the package. Unboxing and assembly of the wooden photo booth.
+            </h4>
+            <div class="product-desc">木质照相亭的开箱与组装</div>
+          </div>
+        </div>
+
+        <div class="video-card" data-tiktok="https://www.youtube.com/watch?v=LtRxq5s1Nfo">
+          <div class="card-cover">
+            <img class="cover-img" src="assets/images/viedoimg/LtRxq5s1Nfo.png" loading="lazy">
+            <div class="play-btn"><i class="ion-ios-play"></i></div>
+            <div class="recommend-badge"><i class="ion-thumbsup"></i> </div>
+          </div>
+          <div class="card-body">
+            <h4 class="product-name">
+              Connecting the wires of the window and the camera printer to print photos </h4>
+            <div class="product-desc">window与照相机打印机的接线到打印照片</div>
+          </div>
+        </div>
 
         <div class="video-card" data-tiktok="https://www.youtube.com/watch?v=wsnHvNRrv54">
           <div class="card-cover">
@@ -350,222 +411,11 @@
         </div>
 
 
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@thearchivestudio.la/video/7641806826920496415">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/7641806826920496415.png" alt="教学视频封面" loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              Received the package. Unboxing and assembly of the wooden photo booth.
-            </h4>
-            <div class="product-desc">木质照相亭的开箱与组装</div>
-          </div>
-        </div>
 
-        <!-- 卡片 2: 产品展示 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662738796017962270">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/dual-sided-wooden-photo-booth.jpg" alt="产品展示封面"
-              loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              产品展示
-            </h4>
-            <div class="product-desc">滚轮式打印机支架产品展示</div>
-          </div>
-        </div>
 
-        <!-- 卡片 3: 打包过程 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662733104271953182">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/dual-sided-wooden-photo-booth.jpg" alt="打包过程封面"
-              loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              打包
-            </h4>
-            <div class="product-desc">航空箱 · 木箱 · 纸箱打包效果</div>
-          </div>
-        </div>
 
-        <!-- 卡片 4: 双面木质复古 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662729424961277215">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/dual-sided-wooden-photo-booth.jpg" alt="双面木质复古照相亭"
-              loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              双面木质复古
-            </h4>
-            <div class="product-desc">内置PC / 18.5"触屏 · 支持DSLR & iPad</div>
-          </div>
-        </div>
 
-        <!-- 卡片 5: 木质电脑 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662729424961277215">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/products (2).jpg" alt="木质电脑照相亭" loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              木质电脑
-            </h4>
-            <div class="product-desc">15.6"触屏 · 内置工控电脑 · 支持DSLR</div>
-          </div>
-        </div>
-
-        <!-- 卡片 6: 金属PC大屏 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662729424961277215">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/products (5).jpg" alt="金属PC大屏照相亭" loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              金属PC大屏
-            </h4>
-            <div class="product-desc">32" / 43" 触屏 · 金属机身 · 支持DSLR & 打印机</div>
-          </div>
-        </div>
-
-        <!-- 卡片 7: 魔法镜 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662729424961277215">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/products (3).jpg" alt="魔法镜照相亭" loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              魔法镜
-            </h4>
-            <div class="product-desc">全屏互动 · 婚礼&活动首选 · 触屏魔法镜</div>
-          </div>
-        </div>
       </div>
-
-      <!-- 标题 -->
-      <div class="row">
-        <div class="col-md-12">
-          <h3 class="section-title">🎬 产品视频 · 精选</h3>
-          <p class="sub-desc">点击卡片播放视频 · 点击名称跳转店铺</p>
-        </div>
-      </div>
-
-      <!-- 卡片网格 (7个产品示例) -->
-      <div class="video-grid" id="videoGrid">
-        <!-- 卡片 1: 教学视频 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7651502587643989279">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/dual-sided-wooden-photo-booth.jpg" alt="教学视频封面"
-              loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              教学
-            </h4>
-            <div class="product-desc">电脑与相机、打印机连接</div>
-          </div>
-        </div>
-
-        <!-- 卡片 2: 产品展示 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662738796017962270">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/dual-sided-wooden-photo-booth.jpg" alt="产品展示封面"
-              loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              产品展示
-            </h4>
-            <div class="product-desc">滚轮式打印机支架产品展示</div>
-          </div>
-        </div>
-
-        <!-- 卡片 3: 打包过程 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662733104271953182">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/dual-sided-wooden-photo-booth.jpg" alt="打包过程封面"
-              loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              打包
-            </h4>
-            <div class="product-desc">航空箱 · 木箱 · 纸箱打包效果</div>
-          </div>
-        </div>
-
-        <!-- 卡片 4: 双面木质复古 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662729424961277215">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/dual-sided-wooden-photo-booth.jpg" alt="双面木质复古照相亭"
-              loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              双面木质复古
-            </h4>
-            <div class="product-desc">内置PC / 18.5"触屏 · 支持DSLR & iPad</div>
-          </div>
-        </div>
-
-        <!-- 卡片 5: 木质电脑 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662729424961277215">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/products (2).jpg" alt="木质电脑照相亭" loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              木质电脑
-            </h4>
-            <div class="product-desc">15.6"触屏 · 内置工控电脑 · 支持DSLR</div>
-          </div>
-        </div>
-
-        <!-- 卡片 6: 金属PC大屏 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662729424961277215">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/products (5).jpg" alt="金属PC大屏照相亭" loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              金属PC大屏
-            </h4>
-            <div class="product-desc">32" / 43" 触屏 · 金属机身 · 支持DSLR & 打印机</div>
-          </div>
-        </div>
-
-        <!-- 卡片 7: 魔法镜 -->
-        <div class="video-card" data-tiktok="https://www.tiktok.com/@wzy4072/video/7662729424961277215">
-          <div class="card-cover">
-            <img class="cover-img" src="assets/images/viedoimg/products (3).jpg" alt="魔法镜照相亭" loading="lazy">
-            <div class="play-btn"><i class="ion-ios-play"></i></div>
-          </div>
-          <div class="card-body">
-            <h4 class="product-name">
-              魔法镜
-            </h4>
-            <div class="product-desc">全屏互动 · 婚礼&活动首选 · 触屏魔法镜</div>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
   </section>
 
   <!-- 页脚 (同首页) -->
