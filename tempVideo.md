@@ -1,0 +1,2 @@
+yt-dlp -f "bestvideo[ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/best[ext=mp4]" -o "%(title)s.%(ext)s" "https://www.tiktok.com/@eternylblyss/video/7656125763946614030"
+yt-dlp -f "bestvideo[ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/best[ext=mp4]" -o "%(title)s.%(ext)s" "https://www.tiktok.com/@eternylblyss/video/7656125763946614030"

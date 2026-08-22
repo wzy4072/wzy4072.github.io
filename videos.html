@@ -170,7 +170,16 @@
       display: flex;
       flex-direction: column;
       background: rgba(255, 255, 255, 0.85);
+      transition: min-height 0.5s linear;
     }
+
+    /* .video-card:hover .card-body {
+      min-height: 130px;
+    } */
+
+
+
+
 
     .card-body .product-name {
       font-size: 16px;
@@ -193,13 +202,19 @@
     }
 
     .card-body .product-desc {
-      display: none;
+      max-height: 0;
       color: #2c3e50;
       font-size: 14px;
       line-height: 1.6;
       margin: 4px 0 12px 0;
       flex: 1;
+      overflow: hidden;
+      /* transition: max-height 0.5s ease; */
     }
+
+    /* .video-card:hover .product-desc {
+      max-height: 120px;
+    } */
 
     .card-body .product-price {
       font-weight: 600;
@@ -303,11 +318,12 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ6H4P4YNQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
 
   gtag('config', 'G-QZ6H4P4YNQ');
 </script>
+
 <body>
 
   <!-- 导航 (复用首页) -->
@@ -412,6 +428,20 @@
           </div>
         </div>
 
+
+        <div class="video-card" data-tiktok="https://www.tiktok.com/@thearchivestudio.la/video/7568989325942148382">
+          <div class="card-cover">
+            <img class="cover-img" src="assets/images/viedoimg/7568989325942148382.png" loading="lazy">
+            <div class="play-btn"><i class="ion-ios-play"></i></div>
+          </div>
+          <div class="card-body">
+            <h4 class="product-name">DNP WCM Wireless Print Server: Setup & iPad Printing Tutorial</h4>
+            <div class="product-desc">This tutorial will guide you through setting up your DNP WCM (Wireless Connect
+              Module) to turn your DNP printer into an AirPrint-compatible device, enabling wireless photo printing
+              directly from your iPad.</div>
+          </div>
+        </div>
+
         <div class="video-card" data-tiktok="https://www.youtube.com/watch?v=wsnHvNRrv54">
           <div class="card-cover">
             <img class="cover-img" src="assets/images/viedoimg/wsnHvNRrv54.png" loading="lazy">
@@ -428,6 +458,17 @@
         </div>
 
 
+        <div class="video-card" data-tiktok="https://www.tiktok.com/@thearchivestudio.la/video/7645428652796153102">
+          <div class="card-cover">
+            <img class="cover-img" src="assets/images/viedoimg/7645428652796153102.png" alt="" loading="lazy">
+            <div class="play-btn"><i class="ion-ios-play"></i></div>
+          </div>
+          <div class="card-body">
+            <h4 class="product-name">Unboxing Our New Single-Sided Wooden iPad Photo Booth</h4>
+            <div class="product-desc"> 单面木质ipad照相亭，到货开箱</div>
+          </div>
+        </div>
+
 
         <div class="video-card" data-tiktok="https://www.tiktok.com/@thearchivestudio.la/video/7662733104271953182">
           <div class="card-cover">
@@ -437,6 +478,17 @@
           <div class="card-body">
             <h4 class="product-name">Air packing cases, wooden cases, and cardboard boxes for display</h4>
             <div class="product-desc"> 航空箱、木箱、纸箱打包展示</div>
+          </div>
+        </div>
+
+        <div class="video-card" data-tiktok="https://www.tiktok.com/@thearchivestudio.la/video/7676637719786736927">
+          <div class="card-cover">
+            <img class="cover-img" src="assets/images/viedoimg/7676637719786736927.png" alt="" loading="lazy">
+            <div class="play-btn"><i class="ion-ios-play"></i></div>
+          </div>
+          <div class="card-body">
+            <h4 class="product-name">How to Assemble a Printer Stand</h4>
+            <div class="product-desc"> How to Assemble a Printer Stand</div>
           </div>
         </div>
 
@@ -517,6 +569,16 @@
           <div class="card-body">
             <h4 class="product-name">Product Display: Roller-type Printer Stand</h4>
             <div class="product-desc"> 产品展示：滚轮式打印机支架</div>
+          </div>
+        </div>
+        <div class="video-card" data-tiktok="https://www.tiktok.com/@thearchivestudio.la/video/7673917792785091871">
+          <div class="card-cover">
+            <img class="cover-img" src="assets/images/viedoimg/7673917792785091871.png" alt="" loading="lazy">
+            <div class="play-btn"><i class="ion-ios-play"></i></div>
+          </div>
+          <div class="card-body">
+            <h4 class="product-name">Product Display: Single-Sided Wooden iPad Photo Booth </h4>
+            <div class="product-desc"> 产品展示：单面木质照相亭</div>
           </div>
         </div>
 
