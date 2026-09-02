@@ -306,7 +306,8 @@ ul li {
 .navbar-custom .navbar-nav>li>a:focus,
 .navbar-custom .navbar-nav>li>a:hover {
   /* background-color: transparent; */
-  border-color: rgba(255, 255, 255, 0.5);
+            background: linear-gradient(135deg, #2563EB, #16D1CC, #FF9838, #F0449C);
+  /* border-color: rgba(255, 255, 255, 0.5); */
 }
 
 .navbar-custom .navbar-nav>.active>a {
@@ -320,7 +321,9 @@ ul li {
 }
 
 .navbar-toggle .icon-bar {
-  background-color: #fff;
+  /* background-color: #fff; */
+            background: linear-gradient(90deg, #2563EB, #16D1CC, #FF9838, #F0449C);
+
 }
 
 .navbar-solid {
