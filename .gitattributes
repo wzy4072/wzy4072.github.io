@@ -1,0 +1,2 @@
+assets/software/*.zip filter=lfs diff=lfs merge=lfs -text
+assets/software/*.rar filter=lfs diff=lfs merge=lfs -text
