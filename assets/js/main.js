@@ -2,13 +2,13 @@
  * Change Navbar color while scrolling
 */
 
-$(window).scroll(function(){
-	handleTopNavAnimation();
-});
+// $(window).scroll(function(){
+// 	handleTopNavAnimation();
+// });
 
-$(window).load(function(){
-	handleTopNavAnimation();
-});
+// $(window).load(function(){
+// 	handleTopNavAnimation();
+// });
 
 function handleTopNavAnimation() {
 	var top=$(window).scrollTop();
