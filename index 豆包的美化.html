@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>COVIEN Photo Booth Manufacturer | Photo Booth Supplier</title>
+
+    <!-- 标准 favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <!-- 现代浏览器支持 PNG 格式 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+    <!-- Apple 设备 -->
+    <link rel="apple-touch-icon" href="/favicon.ico">
+
+    <!-- css -->
+    <!-- 首屏关键 CSS 内联，不阻塞 -->
+    <style>
+        /* ===== 最小化 reset + 栅格 + navbar + header ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a5568;
+            background: #ffffff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #1a202c;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0 0 16px;
+        }
+
+        p {
+            margin: 0 0 16px;
+        }
+
+        /* 链接全局 */
+        a {
+            color: #0033cc;
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus {
+            color: #00d0d9;
+            text-decoration: none;
+        }
+
+
+        address {
+            margin-bottom: 20px;
+            font-style: normal;
+            line-height: 1.428
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 0 15px
+        }
+
+        @media(min-width:768px) {
+            .container {
+                width: 750px
+            }
+        }
+
+        @media(min-width:992px) {
+            .container {
+                width: 970px
+            }
+        }
+
+        @media(min-width:1200px) {
+            .container {
+                width: 1170px
+            }
+        }
+
+        .row {
+            margin: 0 -15px
+        }
+
+        .row::before,
+        .row::after {
+            display: table;
+            content: " "
+        }
+
+        .row::after {
+            clear: both
+        }
+
+        .col-sm-6,
+        .col-md-4,
+        .col-md-12,
+        .col-sm-3 {
+            position: relative;
+            min-height: 1px;
+            padding: 0 15px;
+            float: left;
+            width: 100%
+        }
+
+        @media(min-width:768px) {
+            .col-sm-6 {
+                width: 50%
+            }
+
+            .col-sm-3 {
+                width: 25%
+            }
+        }
+
+        @media(min-width:992px) {
+            .col-md-4 {
+                width: 33.33333333%
+            }
+
+            .col-md-12 {
+                width: 100%
+            }
+        }
+
+        .img-responsive {
+            display: block;
+            max-width: 100%;
+            height: auto
+        }
+
+        .center-block {
+            display: block;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .text-uppercase {
+            text-transform: uppercase
+        }
+
+        .mt0 {
+            margin-top: 0
+        }
+
+        /* navbar */
+        .navbar {
+            position: relative;
+            min-height: 50px;
+            margin-bottom: 20px;
+            border: 1px solid transparent
+        }
+
+        .navbar-fixed-top {
+            position: fixed;
+            right: 0;
+            left: 0;
+            z-index: 1030;
+            top: 0;
+            border-width: 0 0 1px
+        }
+
+        .navbar-custom {
+            border: 0;
+            margin: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: #0033cc;
+            transition: all 0.24s ease;
+        }
+
+        .navbar-header::before,
+        .navbar-header::after {
+            display: table;
+            content: " "
+        }
+
+        .navbar-header::after {
+            clear: both
+        }
+
+        .navbar-toggle {
+            position: relative;
+            float: right;
+            padding: 9px 10px;
+            margin: 8px 15px 8px 0;
+            background: transparent;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: none
+        }
+
+        .navbar-toggle .icon-bar {
+            display: block;
+            width: 22px;
+            height: 2px;
+            border-radius: 1px;
+            background: #888
+        }
+
+        .navbar-toggle .icon-bar+.icon-bar {
+            margin-top: 4px
+        }
+
+        .navbar-collapse {
+            border-top: 1px solid transparent;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
+            overflow-x: visible;
+            padding-right: 15px;
+            padding-left: 15px
+        }
+
+        .navbar-collapse::before,
+        .navbar-collapse::after {
+            display: table;
+            content: " "
+        }
+
+        .navbar-collapse::after {
+            clear: both
+        }
+
+        .navbar-nav {
+            margin: 7.5px -15px;
+            padding-left: 0;
+            list-style: none
+        }
+
+        .navbar-nav>li {
+            position: relative;
+            display: block
+        }
+
+        .navbar-custom .navbar-nav>li>a {
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar-custom .navbar-nav>li>a:hover,
+        .navbar-custom .navbar-nav>li>a:focus {
+            background-color: transparent;
+            color: #00d0d9;
+            border-bottom-color: #00d0d9;
+        }
+
+        .navbar-custom .navbar-nav>.active>a {
+            color: #00d0d9;
+            border-bottom-color: #00d0d9;
+            background: transparent;
+        }
+
+        .navbar-right {
+            float: right !important;
+            margin-right: -15px
+        }
+
+        @media(min-width:768px) {
+            .navbar-toggle {
+                display: none
+            }
+
+            .navbar-collapse {
+                width: auto;
+                border-top: 0;
+                box-shadow: none;
+                display: block !important;
+                padding: 0
+            }
+
+            .navbar-nav {
+                float: left;
+                margin: 0
+            }
+
+            .navbar-nav>li {
+                float: left
+            }
+
+            .navbar-nav>li>a {
+                padding-top: 15px;
+                padding-bottom: 15px
+            }
+
+            .navbar-right {
+                float: right !important
+            }
+
+            .navbar>.container .navbar-brand,
+            .navbar>.container-fluid .navbar-brand {
+                margin-left: -15px
+            }
+        }
+
+        /* header 首屏 */
+        .site-header {
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            /* 删除原来的radial-gradient彩虹背景 */
+            background-image: linear-gradient(rgba(0, 51, 204, 0.65), rgba(0, 51, 204, 0.65)), url('assets/images/header.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .site-header .intro {
+            padding: 120px 15px 60px;
+            max-width: 960px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 品牌名称：保留彩虹文字渐变（仅用于brand‑line） */
+        .site-header .brand-line {
+            background: linear-gradient(90deg, #00d0d9, #72e07a, #ffcc22, #ff2288);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .site-header h1 {
+            color: #ffffff;
+            font-size: 28px;
+            margin: 0;
+        }
+
+        @media(min-width:768px) {
+            .site-header {
+                min-height: 600px;
+            }
+
+            .site-header .brand-line {
+                font-size: 36px;
+            }
+
+            .site-header h1 {
+                font-size: 42px;
+            }
+
+            .navbar-custom {
+                background-color: rgba(0, 51, 204, 0.25);
+                padding-top: 30px;
+            }
+        }
+    </style>
+
+    <!-- 首屏背景图预加载（按浏览器支持选格式） -->
+    <link rel="preload" as="image" href="assets/images/header.webp" type="image/webp" fetchpriority="high">
+
+    <!-- 非首屏 CSS 异步加载，不阻塞 -->
+    <link rel="preload" as="style" href="bower_components/bootstrap/dist/css/bootstrap.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="assets/css/main.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+    </noscript>
+
+    <!-- ionicons 首屏不需要，异步 -->
+    <link rel="preload" as="style" href="bower_components/ionicons/css/ionicons.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+    <meta name="description" content="
+COVIEN is a professional photo booth manufacturer specializing in DSLR photo booth, iPad photo booth, wooden photo booth and photo booth accessories. We provide customized photo booth solutions for event companies, rental businesses and distributors worldwide.
+">
+
+
+    <meta name="keywords" content="
+photo booth manufacturer,
+photo booth supplier,
+photo booth machine,
+DSLR photo booth,
+iPad photo booth,
+wooden photo booth,
+mirror photo booth,
+photo booth equipment,
+photo booth accessories,
+event photo booth supplier
+">
+    <meta name="author" content="COVIEN">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://covien.net/">
+    <!-- Open Graph -->
+    <meta property="og:title" content="
+COVIEN Photo Booth Manufacturer | DSLR iPad Wooden Photo Booth Supplier
+">
+    <meta property="og:description" content="
+Professional photo booth machine manufacturer offering DSLR photo booth, iPad photo booth, wooden photo booth and customized solutions for global event businesses.
+">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://covien.net/">
+    <meta property="og:image" content="https://covien.net/images/photo-booth.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="
+COVIEN Photo Booth Manufacturer | DSLR iPad Wooden Photo Booth Supplier
+">
+    <meta name="twitter:description" content="
+Professional photo booth equipment manufacturer for event companies and rental businesses.
+">
+    <script type="application/ld+json">
+
+[{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "COVIEN",
+  "url": "https://covien.net/",
+  "logo": "https://covien.net/images/logo.png",
+  "description": "COVIEN is a professional photo booth manufacturer specializing in DSLR photo booth, iPad photo booth, wooden photo booth and photo booth accessories.",
+  "industry": "Photo Booth Equipment Manufacturing",
+  "sameAs": []
+},
+
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[ {
+ "@type":"Question",
+ "name":"Why choose COVIEN as your photo booth manufacturer?",
+ "acceptedAnswer":{
+ "@type":"Answer",
+ "text":"COVIEN specializes in commercial Photo Booth equipment manufacturing, providing professional solutions for Photo Booth Rental Companies, Event Companies, and distributors. With our own design, production, and quality control capabilities, we provide stable products, flexible customization, and reliable support."
+  }
+},
+ {
+ "@type":"Question",
+ "name":"How does COVIEN guarantee photo booth quality?",
+ "acceptedAnswer":{
+ "@type":"Answer",
+ "text":"All COVIEN products undergo strict quality control, including material inspection, production monitoring, and final function testing. Every Photo Booth is tested for structure, electrical safety, and operation performance before shipment."
+ }
+ },
+
+
+ {
+ "@type":"Question",
+ "name":"Does COVIEN support OEM customization?",
+ "acceptedAnswer":{
+ "@type":"Answer",
+ "text":"Yes. COVIEN supports customization including color, logo, appearance, screen, printer configuration, packaging, and functions. We help customers develop exclusive Photo Booth products for their local markets."
+ }
+ },
+
+
+ {
+ "@type":"Question",
+ "name":"How does COVIEN ship photo booth machines?",
+ "acceptedAnswer":{
+ "@type":"Answer",
+ "text":"All COVIEN Photo Booth machines are shipped with professional flight cases at no extra cost. The flight case provides strong protection and reduces damage risk during international shipping."
+ }
+ },
+ {
+ "@type":"Question",
+ "name":"Does COVIEN provide installation and after-sales support?",
+ "acceptedAnswer":{
+ "@type":"Answer",
+ "text":"COVIEN provides installation videos, manuals, online technical support, long-term technical assistance and spare parts supply to keep your equipment running reliably."
+ }
+}
+ ]
+}
+]
+
+</script>
+</head>
+<!-- Google tag (gtag.js) -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ6H4P4YNQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-QZ6H4P4YNQ');
+</script> -->
+<script>
+    window.addEventListener('load', function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QZ6H4P4YNQ';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QZ6H4P4YNQ');
+    });
+</script>
+
+<body data-spy="scroll" data-target="#site-nav">
+    <nav id="site-nav" class="navbar navbar-fixed-top navbar-custom navbar-solid">
+        <div class="container">
+            <div class="navbar-header">
+
+                <!-- logo -->
+                <div class="site-branding">
+                    <a class="logo" href="index.html">
+                        <img src="assets/images/logo.png" alt="COVIEN Logo" width="120" height="30"
+                            style="height:30px;width:auto" fetchpriority="high" decoding="async">
+                    </a>
+                </div>
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-items"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div><!-- /.navbar-header -->
+
+            <div class="collapse navbar-collapse" id="navbar-items">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <!-- navigation menu -->
+                    <li class="active"><a data-scroll href="#about">About</a></li>
+                    <li><a data-scroll href="#speakers">Products</a></li>
+                    <li><a data-scroll href="#schedule">Factory</a></li>
+                    <li><a data-scroll href="#faq">FAQ</a></li>
+                    <li><a data-scroll href="#partner">Users</a></li>
+                    <li><a data-scroll href="#location">Contact</a></li>
+
+                </ul>
+            </div>
+        </div><!-- /.container -->
+    </nav>
+
+    <header id="site-header" class="site-header">
+        <div class="intro">
+            <div class="brand-line">Shenzhen Covien Technology Co., Ltd.</div>
+            <h1>Professional Photo Booth Machine Manufacturer</h1>
+        </div>
+    </header>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <h3 class="section-title">About Us</h3>
+
+                    <p>Shenzhen Covien Technology Co., Ltd., founded in 2022, is a commercial photo
+                        booth manufacturer
+                        with integrated in-house metal and woodworking production, including laser cutting, CNC
+                        machining, welding, painting, and assembly lines. We hold 27+ design and utility patents and
+                        support full customization across appearance, function, and packaging. Every unit undergoes 100%
+                        power-on and functional testing before shipment. We provide a one-year standard warranty, 7×12
+                        remote technical support, and one-stop procurement for printers and cameras.</p>
+
+                    <figure>
+                        <img loading="lazy" decoding="async" alt="" class="img-responsive"
+                            src="assets/images/about-us.png">
+                    </figure>
+
+                </div><!-- /.col-sm-6 -->
+
+                <div class="col-sm-6">
+
+                    <h3 class="section-title multiple-title">What is Our Goal?</h3>
+
+                    <p >You’ve pulled all-nighters setting up booths, been forced to move logos pixel
+                        by pixel, and
+                        watched an event nearly fail because one screw was missing from shipment. We can’t give you back
+                        those lost weekends, nor can we explain to your client why bigger isn’t always better. But if
+                        you‘re ready to try a better way, we just might give you the chance to run events with far less
+                        headache.</p>
+
+                    <ul class="list-arrow-right" >
+
+                        <li>In-house production from sheet metal to finished booth — reliable lead times, no excuses
+                        </li>
+                        <li>Customization for iPad/camera models, colors, and flight cases with handles & wheels</li>
+                        <li>100% power-on test before shipment — plug and play on site</li>
+                        <li>One-year warranty, free replacement for damaged parts</li>
+                        <li>One-stop procurement — we source printers & cameras for you, one supplier for everything
+                        </li>
+
+                    </ul>
+
+                </div><!-- /.col-sm-6 -->
+            </div>
+        </div><!-- /.container -->
+    </section>
+
+    <section id="contribution" class="section bg-image-2 contribution">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-uppercase mt0 font-400"> Your Photo Booth Should Work. Every Single Time.</h3>
+
+                    <p>You've survived the crash — the one where the touchscreen froze 20 minutes into a 4-hour wedding,
+                        and the bride's father gave you that look. You've explained to a client why the printer chose
+                        that exact moment to die. You've driven two hours round trip to swap a booth at 10pm on a
+                        Saturday.
+
+                        We can't give you back that night. Or undo the one-star review.
+
+                        But if you're tired of praying your gear works …</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="speakers" class="section speakers">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h3 class="section-title">Products</h3>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="speaker">
+
+                        <figure>
+                            <a href="https://snaphub.en.alibaba.com" title="COVIEN International Store Entrance">
+                                <img loading="lazy" decoding="async" class="img-responsive center-block"
+                                    alt="Dual sided wooden photo booth machine with DSLR camera and touchscreen"
+                                    title="COVIEN Dual Sided Wooden Photo Booth Manufacturer"
+                                    src="assets/images/speakers/dual-sided-wooden-photo-booth.jpg">
+
+
+
+                            </a>
+                        </figure>
+
+                        <h4>Dual-sided vintage wooden </h4>
+                        <!-- <h6>Dual-sided wooden : built-in PC, original photo-taking software, 18.5-inch touch screen ,12.9" 13" iPad</h6> -->
+                        <!-- <h4>双面木质照相亭： 内置PC 原装拍照软件 18.5"触摸屏幕</h4> -->
+                        <div hidden>
+
+                            Product Type:
+                            Dual Sided Wooden Photo Booth
+
+                            Application:
+                            Wedding Event Photo Booth
+                            Corporate Event Booth
+                            Photo Booth Rental Business
+
+                            System:
+                            Windows PC
+                            iPad Compatible
+                            DSLR Camera Compatible
+
+                            Display:
+                            18.5 inch Touch Screen
+                            15.6 inch Touch Screen Option
+
+                            Camera:
+                            DSLR Camera Support
+
+                            Printer:
+                            DNP DS620
+                            DNP RX1
+                            HITI Printer Compatible
+
+                            Customization:
+                            Color Customization
+                            Logo Customization
+                            OEM Service
+
+                            Material:
+                            Wood Structure
+                            Metal Frame
+                            Premium Surface Finish
+
+                            Use:
+                            Wedding
+                            Party
+                            Corporate Event
+                            Rental Business
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="speaker">
+                        <figure>
+                            <a href="https://snaphub.en.alibaba.com" title="COVIEN International Store Entrance">
+                                <img loading="lazy" decoding="async"
+                                    alt="Wooden computer photo booth with built in PC 15.6 inch touchscreen DSLR support"
+                                    title="COVIEN Wooden Computer Photo Booth Supplier"
+                                    class="img-responsive center-block" src="assets/images/speakers/products (2).jpg">
+                            </a>
+                        </figure>
+                        <!-- <h6>Wooden Computer Photo Booth: Built-in computer, wooden structure, supports DSLR, 15.6" touchscreen </h6> -->
+                        <h4>Wooden Computer </h4>
+
+                        <!-- <h6>木质电脑照相亭：内置电脑 木质 支持DSLR 15.6"触摸屏 </h6> -->
+                        <div hidden>Built-in Computer Photo Booth
+
+                            15.6 Inch Touch Display
+
+                            DSLR Camera Support
+
+                            Photo Booth Software Compatible
+
+                            Professional Event Equipment
+
+                            OEM Photo Booth Manufacturer
+
+                            Wedding Photo Booth Machine
+
+                            Rental Photo Booth Equipment</div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="speaker">
+
+                        <figure>
+                            <a href="https://snaphub.en.alibaba.com" title="COVIEN International Store Entrance">
+                                <img loading="lazy" decoding="async"
+                                    alt="Metal photo booth machine with touchscreen DSLR camera support for events"
+                                    title="COVIEN Metal Photo Booth Machine Manufacturer"
+                                    class="img-responsive center-block" src="assets/images/speakers/products (5).jpg">
+                            </a>
+                        </figure>
+                        <!-- <h6>70-inch panel, 43-inch 32-inch touch screen, can accommodate DNP DS620 RX1 printer, supports
+                            DSLR computer photo booth</h6> -->
+                        <!-- 70"面板 43" 32"触摸屏 可放置DNP DS620 RX1 打印机 支持DSLR 电脑照相亭  -->
+                        <h4>Metal PC Photo Booth</h4>
+                        <div hidden>Metal Photo Booth
+
+                            Portable Photo Booth Machine
+
+                            iPad Photo Booth
+
+                            DSLR Photo Booth
+
+                            Event Photo Booth Equipment
+
+                            Commercial Photo Booth
+
+                            Rental Company Equipment
+
+                            Powder Coated Metal Structure
+
+                            Custom Color Available</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="speaker">
+                        <figure>
+                            <a href="https://snaphub.en.alibaba.com" title="COVIEN International Store Entrance">
+                                <img loading="lazy" decoding="async" alt="COVIEN 国际站店铺入口"
+                                    class="img-responsive center-block" src="assets/images/speakers/products (4).jpg">
+                            </a>
+                        </figure>
+                        <!-- <h4>Photo Booth</h4> -->
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="speaker">
+
+                        <figure>
+                            <a href="https://snaphub.en.alibaba.com" title="COVIEN International Store Entrance">
+                                <img loading="lazy" decoding="async"
+                                    alt="Full screen mirror photo booth machine for wedding and event entertainment"
+                                    title="COVIEN Mirror Photo Booth Manufacturer" class="img-responsive center-block"
+                                    src="assets/images/speakers/products (3).jpg">
+                            </a>
+                        </figure>
+
+                        <!-- <h4>Magic Mirror photo Booth</h4> -->
+                        <div hidden>Mirror Photo Booth
+
+                            Magic Mirror Booth
+
+                            Touch Screen Mirror Booth
+
+                            Wedding Entertainment Equipment
+
+                            Interactive Photo Booth
+
+                            Event Rental Equipment</div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="speaker">
+                        <figure>
+                            <a href="https://snaphub.en.alibaba.com" title="COVIEN International Store Entrance">
+                                <img loading="lazy" decoding="async" alt="COVIEN 国际站店铺入口"
+                                    class="img-responsive center-block" src="assets/images/speakers/products (6).png">
+                            </a>
+                        </figure>
+                        <!-- <h4>Photo Booth</h4> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="speaker">
+
+                        <figure>
+                            <a href="https://snaphub.en.alibaba.com" title="COVIEN International Store Entrance">
+                                <img loading="lazy" decoding="async" alt="COVIEN 国际站店铺入口"
+                                    class="img-responsive center-block" src="assets/images/speakers/products (7).jpeg">
+                            </a>
+                        </figure>
+
+                        <!-- <h4>Photo Booth</h4> -->
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="speaker">
+
+                        <figure>
+                            <a href="https://snaphub.en.alibaba.com" title="COVIEN International Store Entrance">
+                                <img loading="lazy" decoding="async" alt="COVIEN 国际站店铺入口"
+                                    class="img-responsive center-block" src="assets/images/speakers/products (8).png">
+                            </a>
+                        </figure>
+                        <!-- <h4>Photo Booth</h4> -->
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="speaker">
+
+                        <figure>
+                            <a href="https://snaphub.en.alibaba.com" title="COVIEN International Store Entrance">
+                                <img loading="lazy" decoding="async" alt="COVIEN 国际站店铺入口"
+                                    class="img-responsive center-block" src="assets/images/speakers/products (9).jpeg">
+                            </a>
+                        </figure>
+                        <!-- <h4>Photo Booth</h4> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="schedule" class="section schedule">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">Factory</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="schedule-box">
+                        <img loading="lazy" decoding="async" alt="COVIEN 国际站店铺入口" class="img-responsive center-block"
+                            src="assets/images/factory/factory (1).jpg">
+
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="schedule-box">
+                        <img loading="lazy" decoding="async" alt="COVIEN 国际站店铺入口" class="img-responsive center-block"
+                            src="assets/images/factory/factory (7).jpg">
+
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="schedule-box">
+                        <img loading="lazy" decoding="async" alt="COVIEN 国际站店铺入口" class="img-responsive center-block"
+                            src="assets/images/factory/factory (3).jpg">
+
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="schedule-box">
+                        <img loading="lazy" decoding="async" alt="COVIEN 国际站店铺入口" class="img-responsive center-block"
+                            src="assets/images/factory/factory (1).png">
+
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="schedule-box">
+                        <img loading="lazy" decoding="async" alt="COVIEN 国际站店铺入口" class="img-responsive center-block"
+                            src="assets/images/factory/factory (2).png">
+
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="schedule-box">
+                        <img loading="lazy" decoding="async" alt="COVIEN 国际站店铺入口" class="img-responsive center-block"
+                            src="assets/images/factory/factory (6).png">
+
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section id="faq" class="section faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">FAQs</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a class="faq-toggle collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne">Why choose Covien?</a>
+                                </h4>
+                            </div>
+
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    We specialize in commercial Photo Booth equipment manufacturing, providing
+                                    professional solutions for Photo Booth Rental Companies, Event Companies, and
+                                    distributors.
+                                    With our own design, production, and quality control capabilities, we provide stable
+                                    products, flexible customization, and reliable support.
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="faq-toggle collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo"> How do you guarantee quality?</a>
+                                </h4>
+                            </div>
+
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingTwo">
+                                <div class="panel-body">All products undergo strict quality control, including material
+                                    inspection, production monitoring, and final function testing.
+                                    Every Photo Booth is tested for structure, electrical safety, and operation
+                                    performance before shipment.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="faq-toggle collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">Do you support OEM customization?</a>
+                                </h4>
+                            </div>
+
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingThree">
+                                <div class="panel-body">Yes, we support customization including color, logo, appearance,
+                                    screen, printer configuration, packaging, and functions.
+                                    We help customers develop exclusive Photo Booth products for their local markets.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="faq-toggle collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseFour">How do you ship the Photo Booth?
+
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingFour">
+                                <div class="panel-body">All Photo Booths are shipped with professional flight cases at
+                                    no extra cost.
+                                    The flight case provides strong protection and reduces damage risk during
+                                    international shipping.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFive">
+                                <h4 class="panel-title">
+                                    <a class="faq-toggle collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseFive" aria-expanded="false"
+                                        aria-controls="collapseFive"> What if I need installation support?
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingFive">
+                                <div class="panel-body">We provide installation videos, manuals, and online technical
+                                    support.
+                                    The modular design allows easy setup, and our team provides continuous after-sales
+                                    assistance.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section id="partner" class="section partner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">users</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <a class="partner-box partner-box-1"></a>
+                </div>
+                <div class="col-sm-3">
+                    <a class="partner-box partner-box-2"></a>
+                </div>
+                <div class="col-sm-3">
+                    <a class="partner-box partner-box-3"></a>
+                </div>
+                <div class="col-sm-3">
+                    <a class="partner-box partner-box-4"></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <a class="partner-box partner-box-5"></a>
+                </div>
+                <div class="col-sm-3">
+                    <a class="partner-box partner-box-6"></a>
+                </div>
+                <div class="col-sm-3">
+                    <a class="partner-box partner-box-7"></a>
+                </div>
+                <div class="col-sm-3">
+                    <a class="partner-box partner-box-8"></a>
+                </div>
+            </div>
+    </section>
+
+
+    <section id="location" class="section location">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="section-title">contact </h3>
+                    <address>
+                        <p>AliBabaShop:
+                            <a style="color: #00337a;font-weight: 600;"
+                                href="https://snaphub.en.alibaba.com/">https://snaphub.en.alibaba.com/ </a>
+                        </p>
+                        <p>Email:wzy4072@163.com</p>
+                        <p>Email:stephon4072@gmail.com</p>
+                        <p>YouTube:@PhotoBoothMax </p>
+                        <p>TikTok:<a style="color: #00337a;font-weight: 600;"
+                                href="https://www.tiktok.com/@CovienPhotoBooth" target="_blank">
+                                @CovienPhotoBooth</a></p>
+
+                        <p>What's up:+86 18565350364</p>
+                    </address>
+                </div>
+                <div class="col-sm-6">
+                    <h3 class="section-title">MORE</h3>
+                    <address>
+
+                        <p><a href="videos.html" style="margin-right: 20px;" class="back-link">Related Videos</a>
+                        </p>
+                        <p><a href="PlugStandard.html" style="margin-right: 20px;" class="back-link">Plug Standard</a>
+                        </p>
+                        <p><a href="gallery.html" style="margin-right: 20px;" class="back-link">Background Wall Pattern
+                            </a></p>
+                        <p><a href="download.html" style="margin-right: 20px;" class="back-link">Software Download
+                            </a></p>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <section id="Others" class="section location">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="site-info">Designed and <br> Developed by <a href="/"> COVIEN </a></p>
+                    <ul class="social-block">
+                        <li><a href=""><i class="ion-social-twitter"></i></a></li>
+                        <li><a href=""><i class="ion-social-facebook"></i></a></li>
+                        <li><a href=""><i class="ion-social-linkedin-outline"></i></a></li>
+                        <li><a href=""><i class="ion-social-googleplus"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- script -->
+    <script defer src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script defer src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script defer src="bower_components/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
+</body>
+
+</html>

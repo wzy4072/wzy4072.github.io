@@ -430,7 +430,8 @@ ul li {
  * 6.1 Section: About 
  */
 .about {
-  background: linear-gradient(90deg, #2563EB, #16D1CC, #FF9838, #F0449C);
+  /* background: linear-gradient(90deg, #2563EB, #16D1CC, #FF9838, #F0449C); */
+  background: linear-gradient(135deg, #0033cc, #00d0d9, #72e07a, #ffcc22, #ff7722, #ff2288);
 }
 .about .section-title {
   margin: 0 0 25px;
@@ -681,8 +682,15 @@ ul li {
   margin-bottom: 10px;
 }
 
+
 .site-footer .site-info a {
-  color: #fff;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(90deg, #0033cc, #00d0d9, #72e07a, #ffcc22, #ff7722, #ff2288);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+
 }
 
 .site-footer .social-block li a {
