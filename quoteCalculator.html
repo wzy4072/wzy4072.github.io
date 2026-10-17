@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COVIEN 费用估算系统 · 演示</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .app {
+      display: flex;
+      gap: 20px;
+      max-width: 1500px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* 左侧配置区 */
+    .config {
+      flex: 2;
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+      height: fit-content;
+    }
+
+    .config h2 {
+      font-size: 20px;
+      margin-bottom: 4px;
+      color: #0f172a;
+    }
+
+    .config .sub {
+      color: #64748b;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .group {
+      margin-bottom: 28px;
+    }
+
+    .group-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .group-title .badge {
+      background: #e2e8f0;
+      color: #475569;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .btn-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .opt-btn {
+      background: #fff;
+      border: 1.5px solid #cbd5e0;
+      border-radius: 40px;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #334155;
+      cursor: pointer;
+      transition: .15s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .opt-btn .price {
+      font-size: 11px;
+      color: #16d1cc;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .opt-btn:hover {
+      border-color: #16d1cc;
+      background: #f0fffe;
+    }
+
+    .opt-btn.selected {
+      background: #16d1cc;
+      border-color: #16d1cc;
+      color: #fff;
+    }
+
+    .opt-btn.selected .price {
+      color: #e0fffe;
+    }
+
+    /* 套餐包按钮特殊样式 */
+    .package-btn {
+      border-color: #ffcc22;
+      background: #fffef5;
+    }
+
+    .package-btn:hover {
+      border-color: #ff7722;
+      background: #fff8e6;
+    }
+
+    .package-btn.selected {
+      background: #ff7722;
+      border-color: #ff7722;
+      color: #fff;
+    }
+
+    .package-btn.selected .price {
+      color: #ffe6cc;
+    }
+
+    /* 右侧汇总区 */
+    .summary {
+      flex: 1.2;
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+      height: fit-content;
+      position: sticky;
+      top: 20px;
+    }
+
+    .summary h2 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: #0f172a;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .selected-list {
+      list-style: none;
+      min-height: 120px;
+      max-height: 300px;
+      overflow-y: auto;
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 8px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 16px;
+    }
+
+    .selected-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 6px;
+      font-size: 13px;
+      border-bottom: 1px dashed #e2e8f0;
+      color: #334155;
+    }
+
+    .selected-list li:last-child {
+      border-bottom: none;
+    }
+
+    .selected-list .empty {
+      color: #94a3b8;
+      text-align: center;
+      padding: 24px 0;
+      font-style: italic;
+    }
+
+    .selected-list .price-tag {
+      font-weight: 600;
+      color: #0d9488;
+      white-space: nowrap;
+    }
+
+    .shipping-section {
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 16px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .shipping-section label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 6px;
+    }
+
+    .shipping-section select {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e0;
+      background: #fff;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .shipping-section select:last-child {
+      margin-bottom: 0;
+    }
+
+    .shipping-info {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .calc-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      padding: 6px 0;
+      color: #475569;
+    }
+
+    .calc-row.discount {
+      color: #ff7722;
+    }
+
+    .calc-row.total {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+      border-top: 2px solid #16d1cc;
+      padding-top: 14px;
+      margin-top: 10px;
+    }
+
+    .calc-row.total span:last-child {
+      color: #16d1cc;
+    }
+
+    .note {
+      font-size: 11px;
+      color: #94a3b8;
+      background: #f1f5f9;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ============ 左侧：配置选择 ============ -->
+    <div class="config">
+      <h2>📸 配置您的 Photo Booth</h2>
+      <p class="sub">点击按钮选择 / 取消 · 价格单位 USD · 数据版本 2026.10</p>
+
+      <!-- 主体型号 -->
+      <div class="group">
+        <div class="group-title">主体型号 <span class="badge" id="badge-booth"></span></div>
+        <div class="btn-grid" id="booth-btns"></div>
+      </div>
+
+      <!-- 打印机底座 -->
+      <div class="group">
+        <div class="group-title">打印机底座 / 机柜 <span class="badge" id="badge-stand"></span></div>
+        <div class="btn-grid" id="stand-btns"></div>
+      </div>
+
+      <!-- 灯光 -->
+      <div class="group">
+        <div class="group-title">灯光系统 <span class="badge" id="badge-light"></span></div>
+        <div class="btn-grid" id="light-btns"></div>
+      </div>
+      <!-- 灯光 -->
+      <div class="group">
+        <div class="group-title">灯光支架 <span class="badge" id="badge-lightStand"></span></div>
+        <div class="btn-grid" id="lightStand-btns"></div>
+      </div>
+
+
+      <!-- 推荐套餐 -->
+      <!-- <div class="group">
+        <div class="group-title">推荐套餐 (更划算) <span class="badge">3款</span></div>
+        <div class="btn-grid" id="package-btns"></div>
+      </div> -->
+
+      <!-- 打印机 -->
+      <div class="group">
+        <div class="group-title">打印机 <span class="badge" id="badge-printer"></span></div>
+        <div class="btn-grid" id="printer-btns"></div>
+      </div>
+
+      <!-- 相机 -->
+      <div class="group">
+        <div class="group-title">相机 & 供电 <span class="badge" id="badge-cam"></span></div>
+        <div class="btn-grid" id="cam-btns"></div>
+      </div>
+
+
+
+      <!-- 音响 -->
+      <div class="group">
+        <div class="group-title">自定义配置模块 <span class="badge" id="badge-audio"></span></div>
+        <div class="btn-grid" id="audio-btns"></div>
+      </div>
+
+
+    </div>
+    <!-- ============ 右侧上：配置预览（图片展示） ============ -->
+
+
+    <!-- ============ 右侧：实时汇总 ============ -->
+    <div class="summary">
+      <h2>🧾 费用汇总</h2>
+
+      <!-- 已选清单 -->
+      <ul class="selected-list" id="selected-list">
+        <li class="empty">尚未选择任何项目</li>
+      </ul>
+
+      <!-- 运费计算 -->
+      <div class="shipping-section">
+        <label>🌍 目的国家 / 地区</label>
+        <select id="country-select">
+          <option value="">请选择国家</option>
+        </select>
+
+        <label>📍 具体区域</label>
+        <select id="region-select">
+          <option value="">请先选择国家</option>
+        </select>
+
+        <label>🚢 运输方式</label>
+        <select id="method-select">
+          <option value="">请先选择区域</option>
+        </select>
+
+        <div class="shipping-info" id="shipping-info"></div>
+      </div>
+
+      <!-- 金额明细 -->
+      <div class="calc-row"><span>货物小计</span><span id="subtotal">$0</span></div>
+      <div class="calc-row discount" id="discount-row" style="display:none;"><span>订单折扣</span><span
+          id="discount">-$0</span></div>
+      <div class="calc-row"><span>运输费用</span><span id="shipping-cost">$0</span></div>
+      <div class="calc-row total"><span>总金额</span><span id="grand-total">$0</span></div>
+
+      <div class="note">
+        💡 运费为 DDP 到门价（含关税、清关、派送），基于标准包装 (2个航空箱，毛重58.5kg)。<br>
+        ⚡ 生产周期 3-5 个工作日，具体运费以最终报价为准。
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ================== 1. 嵌入你提供的 JSON 数据 ==================
+    const PRODUCT_DATA = {
+      "currency": "USD",
+      "dataVersion": "2026.10",
+      "baseBoothModels": [
+        { "id": "1wood_booth_opt1", "nameCn": "PC+ipad", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 820 },
+        { "id": "1wood_booth_opt2", "nameCn": "PC+-双触屏", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 1013 },
+        { "id": "1wood_booth_opt3", "nameCn": "DSLR-ipad", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 450 },
+        { "id": "1wood_booth_opt4", "nameCn": "PC-横向15.6-一体机", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 1200 },
+        { "id": "1wood_booth_opt5", "nameCn": "PC+单触屏", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 820 },
+        { "id": "1wood_booth_opt6", "nameCn": "iPad", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 495 },
+        { "id": "1wood_booth_opt7", "nameCn": "PC-横向15.6-轻量", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 850 },
+      ],
+
+      "accessoriesAndModules": {
+        "printerStands": [
+          { "id": "2acc_stand_11", "nameCn": "适配DPN RX1HS", "priceUsd": 250 },
+          { "id": "2acc_stand_12", "nameCn": "适配DPN DS620", "priceUsd": 250 },
+          { "id": "2acc_stand_13", "nameCn": "适配HITI P525L", "priceUsd": 250 },
+          { "id": "2acc_stand_14", "nameCn": "适配DNP QW410", "priceUsd": 280 },
+          { "id": "2acc_stand_15", "nameCn": "起订定制款", "priceUsd": 280 },
+        ],
+        "lighting": [
+          { "id": "3nice_GY180", "nameCn": "NiceFoto GY180+柔光伞", "priceUsd": 80 },
+          { "id": "3godox_ms200v", "nameCn": "GODOX MS200V+雷达罩+引闪器", "priceUsd": 120 },
+          { "id": "3godox_ms300v", "nameCn": "GODOX MS300V+雷达罩+引闪器", "priceUsd": 160 },
+          { "id": "3godox_ms3002v", "nameCn": "GODOX SK300IIV+雷达罩+引闪器", "priceUsd": 160 },
+          { "id": "3godox_ms4002v", "nameCn": "GODOX SK400IIV+雷达罩+引闪器", "priceUsd": 180 },
+        ],
+        "lightStand": [
+          { "id": "4stand_01", "nameCn": "直杆支架15cm", "priceUsd": 2 },
+          { "id": "4stand_02", "nameCn": "直杆支架20cm", "priceUsd": 3 },
+          { "id": "4stand_03", "nameCn": "直杆支架25cm", "priceUsd": 5 },
+          { "id": "4stand_04", "nameCn": "三角支架", "priceUsd": 50 },
+        ],
+        "printers": [
+          { "id": "5acc_printer_rx1hs", "nameCn": "DNP RX1HS", "priceUsd": 676 },
+          { "id": "5acc_printer_rx1hspaper", "nameCn": "DNP RX1HS 相纸", "priceUsd": 229 },
+          { "id": "5acc_printer_ds620", "nameCn": "DNP DS620", "priceUsd": 1075 },
+          { "id": "5acc_printer_ds620paper", "nameCn": "DNP DS620 相纸", "priceUsd": 176 },
+          { "id": "5acc_printer_qw410", "nameCn": "DNP QW410", "priceUsd": 573 },
+          { "id": "5acc_printer_qw410paper", "nameCn": "DNP QW410  相纸", "priceUsd": 84 },
+          { "id": "5acc_printer_p525l", "nameCn": "HITI P525L", "priceUsd": 543 },
+          { "id": "5acc_printer_p525lpaper", "nameCn": "HITI P525L 相纸", "priceUsd": 152 },
+
+        ],
+        "camerasAndPower": [
+          { "id": "acc_cam_canon_r100", "nameCn": "佳能 Canon EOS R100 微单套机（含镜头）", "priceUsd": 470 }
+        ],
+        "audio": [
+          { "id": "7audio_marshall", "nameCn": "Marshal 蓝牙音箱", "priceUsd": 120 },
+          { "id": "7audio_pullRod", "nameCn": "行李箱拉杆", "priceUsd": 60 },
+          { "id": "7audio_Color", "nameCn": "定制颜色", "priceUsd": 80 },
+          { "id": "7audio_handle", "nameCn": "提手", "priceUsd": 20 },
+          { "id": "7audio_sftLightUmbrella", "nameCn": "柔光伞", "priceUsd": 10 },
+          { "id": "7audio_panelLock", "nameCn": "面板锁", "priceUsd": 5 },
+          // { "id": "7audio_sftLightUmbrella", "nameCn": "柔光伞", "priceUsd": 10 },
+          { "id": "7audio_roundpall", "nameCn": "面板圆角", "priceUsd": 50 }
+        ],
+
+      },
+      // "recommendedTurnkeyPackages": [
+      //   { "packageId": "pkg_starter_diy", "packageNameCn": "入门创业包 (自带相机与打印机)", "packagePriceUsd": 1320, "discountUsd": 50 },
+      //   { "packageId": "pkg_standard_pro", "packageNameCn": "标准专业包 (含佳能单反全套)", "packagePriceUsd": 1890, "discountUsd": 70 },
+      //   { "packageId": "pkg_turnkey_complete", "packageNameCn": "一站式全套商用豪华包 (到手即用)", "packagePriceUsd": 2480, "discountUsd": 100 }
+      // ]
+    };
+
+    const SHIPPING_DATA = {
+      "currency": "USD",
+      "countries": [
+        {
+          "countryCode": "US", "countryNameCn": "美国", "regions": [
+            {
+              "regionId": "us_west", "regionNameCn": "美西主要城市 (洛杉矶/西雅图/旧金山等)", "shippingMethods": [
+                { "methodId": "fast_sea_matson", "methodNameCn": "美森快船 DDP", "averageCostUsd": 185, "transitDaysRange": [15, 20] },
+                { "methodId": "std_sea", "methodNameCn": "标准经济海运 DDP", "averageCostUsd": 140, "transitDaysRange": [30, 35] },
+                { "methodId": "air_express", "methodNameCn": "空运加急专线 DDP", "averageCostUsd": 490, "transitDaysRange": [8, 12] }
+              ]
+            },
+            {
+              "regionId": "us_east_central", "regionNameCn": "美中/美东及内陆城市 (纽约/芝加哥等)", "shippingMethods": [
+                { "methodId": "fast_sea_matson", "methodNameCn": "美森快船+内陆转运 DDP", "averageCostUsd": 195, "transitDaysRange": [20, 25] },
+                { "methodId": "std_sea", "methodNameCn": "标准海运全水路 DDP", "averageCostUsd": 150, "transitDaysRange": [35, 45] },
+                { "methodId": "air_express", "methodNameCn": "空运加急专线 DDP", "averageCostUsd": 520, "transitDaysRange": [8, 12] }
+              ]
+            }
+          ]
+        },
+        {
+          "countryCode": "GB", "countryNameCn": "英国", "regions": [
+            {
+              "regionId": "uk_nationwide", "regionNameCn": "英国全境 (伦敦/伯明翰/曼彻斯特等)", "shippingMethods": [
+                { "methodId": "fast_sea_europe", "methodNameCn": "欧洲海运特快专线 DDP", "averageCostUsd": 215, "transitDaysRange": [25, 32] },
+                { "methodId": "std_sea_train", "methodNameCn": "标准海运/铁运 DDP", "averageCostUsd": 190, "transitDaysRange": [40, 50] },
+                { "methodId": "air_express", "methodNameCn": "空运专线 DDP", "averageCostUsd": 510, "transitDaysRange": [10, 15] }
+              ]
+            }
+          ]
+        },
+        {
+          "countryCode": "AU", "countryNameCn": "澳大利亚", "regions": [
+            {
+              "regionId": "au_metro", "regionNameCn": "澳洲主要都市圈 (悉尼/墨尔本/布里斯班等)", "shippingMethods": [
+                { "methodId": "fast_sea_direct", "methodNameCn": "澳线海运直达快线 DDP", "averageCostUsd": 180, "transitDaysRange": [20, 25] },
+                { "methodId": "std_sea", "methodNameCn": "标准海运 DDP", "averageCostUsd": 170, "transitDaysRange": [28, 35] },
+                { "methodId": "air_express", "methodNameCn": "空运专线 DDP", "averageCostUsd": 450, "transitDaysRange": [9, 14] }
+              ]
+            }
+          ]
+        },
+        {
+          "countryCode": "CA", "countryNameCn": "加拿大", "regions": [
+            {
+              "regionId": "ca_metro", "regionNameCn": "加拿大主要都市区 (温哥华/多伦多等)", "shippingMethods": [
+                { "methodId": "fast_sea_vancouver", "methodNameCn": "温哥华港海运快线 DDP", "averageCostUsd": 210, "transitDaysRange": [20, 28] },
+                { "methodId": "std_sea", "methodNameCn": "标准海运 DDP", "averageCostUsd": 190, "transitDaysRange": [35, 45] },
+                { "methodId": "air_express", "methodNameCn": "空运加急 DDP", "averageCostUsd": 540, "transitDaysRange": [10, 15] }
+              ]
+            }
+          ]
+        },
+        {
+          "countryCode": "EU", "countryNameCn": "欧洲主要国家", "regions": [
+            {
+              "regionId": "eu_core", "regionNameCn": "西欧与中欧主要经济体 (巴黎/法兰克福等)", "shippingMethods": [
+                { "methodId": "fast_sea_eu", "methodNameCn": "欧洲快船/中欧快铁 DDP", "averageCostUsd": 230, "transitDaysRange": [25, 32] },
+                { "methodId": "std_sea", "methodNameCn": "标准海运 DDP", "averageCostUsd": 200, "transitDaysRange": [40, 55] },
+                { "methodId": "air_express", "methodNameCn": "空运加急专线 DDP", "averageCostUsd": 560, "transitDaysRange": [10, 15] }
+              ]
+            }
+          ]
+        },
+        {
+          "countryCode": "ZA", "countryNameCn": "南非", "regions": [
+            {
+              "regionId": "za_gauteng", "regionNameCn": "豪登省及主要港口都市圈", "shippingMethods": [
+                { "methodId": "std_sea", "methodNameCn": "南非海运专线 DDP", "averageCostUsd": 260, "transitDaysRange": [55, 65] },
+                { "methodId": "air_express", "methodNameCn": "空运专线 DDP", "averageCostUsd": 950, "transitDaysRange": [12, 16] }
+              ]
+            }
+          ]
+        }
+      ],
+      "calculatorFormula": {
+        "discountTiers": [
+          { "minOrderSubtotal": 2000, "discountUsd": 70 },
+          { "minOrderSubtotal": 1000, "discountUsd": 60 },
+          { "minOrderSubtotal": 0, "discountUsd": 30 }
+        ]
+      }
+    };
+
+    // ================== 2. 状态管理 ==================
+    // let selectedBooth = null;
+    // let selectedPrinterStand = null;
+    // let selectedLight = null;
+    // let selectedLightStand = null;
+    // let selectedPrinter = null;
+    // let selectedCam = null;
+
+    let selectIdMap = {};
+    let selectedIds = new Set(); // 所有多选id共用
+    // let selectedPackageId = null;   // 套餐包互斥，且与主体型号互斥
+    const itemMap = new Map();       // id -> { name, price, type }
+    const singleSelectTypes = ['baseBoothModels', 'printerStands', 'lighting', 'lightStand', 'printers', 'camerasAndPower'];
+
+    // 构建扁平化映射
+    PRODUCT_DATA.baseBoothModels.forEach(m => itemMap.set(m.id, { id: m.id, name: m.nameCn, price: m.priceUsd, type: 'booth' }));
+    Object.values(PRODUCT_DATA.accessoriesAndModules).flat().forEach(a => itemMap.set(a.id, { id: a.id, name: a.nameCn, price: a.priceUsd, type: 'accessory' }));
+    // PRODUCT_DATA.recommendedTurnkeyPackages.forEach(p => itemMap.set(p.packageId, { name: p.packageNameCn, price: p.packagePriceUsd, type: 'package' }));
+
+    // ================== 3. 渲染按钮 ==================
+    function renderButtons(containerId, items, type) {
+      const box = document.getElementById(containerId);
+      box.innerHTML = '';
+      items.forEach(item => {
+        const id = item.id || item.packageId;
+        const name = item.nameCn || item.packageNameCn;
+        const price = item.priceUsd || item.packagePriceUsd;
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn' + (type === 'package' ? ' package-btn' : '');
+        btn.dataset.id = id;
+        btn.innerHTML = `${name}<span class="price">$${price}</span>`;
+        btn.addEventListener('click', () => toggleItem(id, type));
+        box.appendChild(btn);
+      });
+      // 更新 badge
+      const badge = document.getElementById('badge-' + containerId.replace('-btns', ''));
+      if (badge) badge.textContent = items.length + '款';
+    }
+
+    // 初始化所有按钮
+    renderButtons('booth-btns', PRODUCT_DATA.baseBoothModels, 'baseBoothModels');
+    // renderButtons('package-btns', PRODUCT_DATA.recommendedTurnkeyPackages, 'package');
+    renderButtons('printer-btns', PRODUCT_DATA.accessoriesAndModules.printers, 'printers');
+    renderButtons('stand-btns', PRODUCT_DATA.accessoriesAndModules.printerStands, 'printerStands');
+    renderButtons('light-btns', PRODUCT_DATA.accessoriesAndModules.lighting, 'lighting');
+    renderButtons('lightStand-btns', PRODUCT_DATA.accessoriesAndModules.lightStand, 'lightStand');
+    renderButtons('audio-btns', PRODUCT_DATA.accessoriesAndModules.audio, 'audio');
+    renderButtons('cam-btns', PRODUCT_DATA.accessoriesAndModules.camerasAndPower, 'camerasAndPower');
+
+    // ================== 4. 选择逻辑 ==================
+    function toggleItem(id, type) {
+      if (singleSelectTypes.includes(type)) {
+        // 重复选择同一类型的配件时，取消选择
+        const oldId = selectIdMap[type];
+        if (oldId && oldId === id) {
+          selectedIds.delete(oldId);
+          selectIdMap[type] = null;
+        } else {
+          selectIdMap[type] = id;
+          selectedIds.delete(oldId);
+          selectedIds.add(id);
+        }
+      }// 普通配件
+      else {
+        if (selectedIds.has(id)) selectedIds.delete(id);
+        else selectedIds.add(id);
+      }
+      updateUI();
+    }
+
+    // ================== 5. 更新界面 ==================
+    function updateUI() {
+      // 按钮高亮
+      document.querySelectorAll('.opt-btn').forEach(btn => {
+        // 选中的按钮高亮，未选中的取消高亮
+        btn.classList.toggle('selected', selectedIds.has(btn.dataset.id));
+      });
+
+
+      // 已选清单
+      const listEl = document.getElementById('selected-list');
+      const items = [...selectedIds].map(id => itemMap.get(id)).filter(Boolean).sort((a, b) => {
+        // 保持产品价格明细，按照重要程度排序
+        return a.id.at(0) - b.id.at(0)
+      });
+
+      if (items.length === 0) {
+        listEl.innerHTML = '<li class="empty">尚未选择任何项目</li>';
+      } else {
+        listEl.innerHTML = items.map(it =>
+          `<li><span>${it.name}</span><span class="price-tag">$${it.price}</span></li>`
+        ).join('');
+      }
+
+      // 计算小计
+      let subtotal = items.reduce((s, it) => s + it.price, 0);
+
+      // 折扣
+      let discount = 0;
+      for (const tier of SHIPPING_DATA.calculatorFormula.discountTiers) {
+        if (subtotal >= tier.minOrderSubtotal) { discount = tier.discountUsd; break; }
+      }
+      // 如果选了套餐，套餐本身有折扣，取最大
+      // if (selectedPackageId) {
+      //   const pkg = PRODUCT_DATA.recommendedTurnkeyPackages.find(p => p.packageId === selectedPackageId);
+      //   if (pkg && pkg.discountUsd > discount) discount = pkg.discountUsd;
+      // }
+
+      // 运费
+      const shippingCost = getShippingCost();
+
+      // 总价
+      const grandTotal = subtotal - discount + shippingCost;
+
+      document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(0);
+      document.getElementById('shipping-cost').textContent = '$' + shippingCost.toFixed(0);
+      document.getElementById('grand-total').textContent = '$' + grandTotal.toFixed(0);
+
+      const discountRow = document.getElementById('discount-row');
+      if (discount > 0) {
+        discountRow.style.display = 'flex';
+        document.getElementById('discount').textContent = '-$' + discount.toFixed(0);
+      } else {
+        discountRow.style.display = 'none';
+      }
+    }
+
+    // ================== 6. 运费三级联动 ==================
+    const countrySel = document.getElementById('country-select');
+    const regionSel = document.getElementById('region-select');
+    const methodSel = document.getElementById('method-select');
+
+    SHIPPING_DATA.countries.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c.countryCode;
+      opt.textContent = `${c.countryNameCn} (${c.countryCode})`;
+      countrySel.appendChild(opt);
+    });
+
+    countrySel.addEventListener('change', () => {
+      regionSel.innerHTML = '<option value="">请选择区域</option>';
+      methodSel.innerHTML = '<option value="">请先选择区域</option>';
+      document.getElementById('shipping-info').textContent = '';
+      const country = SHIPPING_DATA.countries.find(c => c.countryCode === countrySel.value);
+      if (!country) { updateUI(); return; }
+      country.regions.forEach(r => {
+        const opt = document.createElement('option');
+        opt.value = r.regionId;
+        opt.textContent = r.regionNameCn;
+        regionSel.appendChild(opt);
+      });
+      updateUI();
+    });
+
+    regionSel.addEventListener('change', () => {
+      methodSel.innerHTML = '<option value="">请选择运输方式</option>';
+      document.getElementById('shipping-info').textContent = '';
+      const country = SHIPPING_DATA.countries.find(c => c.countryCode === countrySel.value);
+      const region = country && country.regions.find(r => r.regionId === regionSel.value);
+      if (!region) { updateUI(); return; }
+      region.shippingMethods.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m.methodId;
+        opt.textContent = `${m.methodNameCn} ($${m.averageCostUsd} / ${m.transitDaysRange[0]}-${m.transitDaysRange[1]}天)`;
+        methodSel.appendChild(opt);
+      });
+      updateUI();
+    });
+
+    methodSel.addEventListener('change', () => {
+      const country = SHIPPING_DATA.countries.find(c => c.countryCode === countrySel.value);
+      const region = country && country.regions.find(r => r.regionId === regionSel.value);
+      const method = region && region.shippingMethods.find(m => m.methodId === methodSel.value);
+      const infoEl = document.getElementById('shipping-info');
+      if (method) {
+        infoEl.innerHTML = `✅ ${method.methodNameCn} · 时效 ${method.transitDaysRange[0]}-${method.transitDaysRange[1]} 天 · 参考运费 $${method.averageCostUsd}`;
+      } else {
+        infoEl.textContent = '';
+      }
+      updateUI();
+    });
+
+    function getShippingCost() {
+      const country = SHIPPING_DATA.countries.find(c => c.countryCode === countrySel.value);
+      const region = country && country.regions.find(r => r.regionId === regionSel.value);
+      const method = region && region.shippingMethods.find(m => m.methodId === methodSel.value);
+      return method ? method.averageCostUsd : 0;
+    }
+
+    // ================== 初始化 ==================
+    updateUI();
+  </script>
+</body>
+
+</html>
