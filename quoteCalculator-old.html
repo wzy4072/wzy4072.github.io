@@ -16,10 +16,16 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: #f1f5f9;
       color: #1e293b;
-      padding: 20px;
+      padding: 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+
+    }
+
+    .headtitle {
+      text-align: center;
     }
 
     .app {
@@ -31,20 +37,29 @@
       flex: 1;
     }
 
+    .leftblock {
+      flex: 2;
+      height: fit-content;
+
+    }
+
     /* 左侧配置区 */
     .config {
-      flex: 2;
       background: #fff;
       border-radius: 16px;
-      padding: 24px;
+      padding: 12px 24px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
-      height: fit-content;
+      margin-bottom: 20px;
+
     }
 
     .config h2 {
       font-size: 20px;
-      margin-bottom: 4px;
+      margin-bottom: 16px;
       color: #0f172a;
+      text-align: center;
+      color: #16d1cc;
+      margin-top: 16px;
     }
 
     .config .sub {
@@ -54,7 +69,7 @@
     }
 
     .group {
-      margin-bottom: 28px;
+      margin-bottom: 16px;
     }
 
     .group-title {
@@ -87,20 +102,31 @@
     .opt-btn {
       background: #fff;
       border: 1.5px solid #cbd5e0;
-      border-radius: 40px;
-      padding: 9px 18px;
+      border-radius: 10px;
+      padding: 4px 12px;
       font-size: 13px;
       font-weight: 500;
       color: #334155;
       cursor: pointer;
       transition: .15s;
-      display: flex;
+      /* display: flex; */
       flex-direction: column;
       align-items: flex-start;
     }
 
+    /* #booth-btns  */
+    .opt-btn {
+      display: block;
+      width: 200px;
+    }
+
     .opt-btn .price {
-      font-size: 11px;
+      margin-left: 20px;
+    }
+
+
+    .opt-btn .price {
+      font-size: 16px;
       color: #16d1cc;
       font-weight: 700;
       margin-top: 2px;
@@ -142,16 +168,22 @@
       color: #ffe6cc;
     }
 
+    .rightblock {
+      flex: 1.2;
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+
+    }
+
     /* 右侧汇总区 */
     .summary {
-      flex: 1.2;
       background: #fff;
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
-      height: fit-content;
-      position: sticky;
-      top: 20px;
+
+      margin-bottom: 20px;
     }
 
     .summary h2 {
@@ -271,113 +303,151 @@
       margin-top: 14px;
       line-height: 1.6;
     }
+
+    .preview-selected .preview-item {
+      display: inline-block;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    .preview-item img {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #00d0d9;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .08)
+    }
+
+    .preview-item img:nth-child(1) {
+      width: 100px;
+      height: 100px;
+    }
   </style>
 </head>
 
 <body>
+  <div class="headtitle">Wooden Photo Booth Configurator</div>
+  <div class="subtitle">Choose your booth model, customize accessories, and get an estimated price instantly.</div>
   <div class="app">
+    <div class="leftblock">
+      <div class="config">
+        <h2>📸 配置Photo Booth 主要配件</h2>
+        <!-- 主体型号 -->
+        <div class="group">
+          <div class="group-title">Booth Model <span class="badge" id="badge-booth"></span></div>
+          <div class="btn-grid" id="booth-btns"></div>
+        </div>
 
-    <!-- ============ 左侧：配置选择 ============ -->
-    <div class="config">
-      <h2>📸 配置您的 Photo Booth</h2>
-      <p class="sub">点击按钮选择 / 取消 · 价格单位 USD · 数据版本 2026.10</p>
+        <!-- 打印机底座 -->
+        <div class="group">
+          <div class="group-title">打印机底座 <span class="badge" id="badge-stand"></span></div>
+          <div class="btn-grid" id="stand-btns"></div>
+        </div>
 
-      <!-- 主体型号 -->
-      <div class="group">
-        <div class="group-title">主体型号 <span class="badge" id="badge-booth"></span></div>
-        <div class="btn-grid" id="booth-btns"></div>
-      </div>
+        <!-- 灯光 -->
+        <div class="group">
+          <div class="group-title">灯光系统 <span class="badge" id="badge-light"></span></div>
+          <div class="btn-grid" id="light-btns"></div>
+        </div>
 
-      <!-- 打印机底座 -->
-      <div class="group">
-        <div class="group-title">打印机底座 / 机柜 <span class="badge" id="badge-stand"></span></div>
-        <div class="btn-grid" id="stand-btns"></div>
-      </div>
+      <!-- </div>
+      <div class="config"> -->
+        <h2>📸 配置Photo Booth 其他配件</h2>
 
-      <!-- 灯光 -->
-      <div class="group">
-        <div class="group-title">灯光系统 <span class="badge" id="badge-light"></span></div>
-        <div class="btn-grid" id="light-btns"></div>
-      </div>
-      <!-- 灯光 -->
-      <div class="group">
-        <div class="group-title">灯光支架 <span class="badge" id="badge-lightStand"></span></div>
-        <div class="btn-grid" id="lightStand-btns"></div>
-      </div>
+        <!-- 灯光 -->
+        <div class="group">
+          <div class="group-title">灯光支架 <span class="badge" id="badge-lightStand"></span></div>
+          <div class="btn-grid" id="lightStand-btns"></div>
+        </div>
 
 
-      <!-- 推荐套餐 -->
-      <!-- <div class="group">
+        <!-- 推荐套餐 -->
+        <!-- <div class="group">
         <div class="group-title">推荐套餐 (更划算) <span class="badge">3款</span></div>
         <div class="btn-grid" id="package-btns"></div>
       </div> -->
 
-      <!-- 打印机 -->
-      <div class="group">
-        <div class="group-title">打印机 <span class="badge" id="badge-printer"></span></div>
-        <div class="btn-grid" id="printer-btns"></div>
+        <!-- 打印机 -->
+        <div class="group">
+          <div class="group-title">打印机 <span class="badge" id="badge-printer"></span></div>
+          <div class="btn-grid" id="printer-btns"></div>
+        </div>
+
+        <!-- 相机 -->
+        <div class="group">
+          <div class="group-title">相机 & 供电 <span class="badge" id="badge-cam"></span></div>
+          <div class="btn-grid" id="cam-btns"></div>
+        </div>
+
+
+
+        <!-- 音响 -->
+        <div class="group">
+          <div class="group-title">自定义配置模块 <span class="badge" id="badge-audio"></span></div>
+          <div class="btn-grid" id="audio-btns"></div>
+        </div>
+
+
       </div>
-
-      <!-- 相机 -->
-      <div class="group">
-        <div class="group-title">相机 & 供电 <span class="badge" id="badge-cam"></span></div>
-        <div class="btn-grid" id="cam-btns"></div>
-      </div>
-
-
-
-      <!-- 音响 -->
-      <div class="group">
-        <div class="group-title">自定义配置模块 <span class="badge" id="badge-audio"></span></div>
-        <div class="btn-grid" id="audio-btns"></div>
-      </div>
-
 
     </div>
+
+
     <!-- ============ 右侧上：配置预览（图片展示） ============ -->
 
 
-    <!-- ============ 右侧：实时汇总 ============ -->
-    <div class="summary">
-      <h2>🧾 费用汇总</h2>
+    <div class="rightblock">
+      <div class="summary">
+        <h2>🧾 所选产品预览</h2>
+        <div class="preview-selected" id="preview-selected">已选配件图片预览</div>
 
-      <!-- 已选清单 -->
-      <ul class="selected-list" id="selected-list">
-        <li class="empty">尚未选择任何项目</li>
-      </ul>
-
-      <!-- 运费计算 -->
-      <div class="shipping-section">
-        <label>🌍 目的国家 / 地区</label>
-        <select id="country-select">
-          <option value="">请选择国家</option>
-        </select>
-
-        <label>📍 具体区域</label>
-        <select id="region-select">
-          <option value="">请先选择国家</option>
-        </select>
-
-        <label>🚢 运输方式</label>
-        <select id="method-select">
-          <option value="">请先选择区域</option>
-        </select>
-
-        <div class="shipping-info" id="shipping-info"></div>
       </div>
 
-      <!-- 金额明细 -->
-      <div class="calc-row"><span>货物小计</span><span id="subtotal">$0</span></div>
-      <div class="calc-row discount" id="discount-row" style="display:none;"><span>订单折扣</span><span
-          id="discount">-$0</span></div>
-      <div class="calc-row"><span>运输费用</span><span id="shipping-cost">$0</span></div>
-      <div class="calc-row total"><span>总金额</span><span id="grand-total">$0</span></div>
+      <!-- ============ 右侧：实时汇总 ============ -->
+      <div class="summary">
+        <h2>🧾 产品价格预览</h2>
 
-      <div class="note">
-        💡 运费为 DDP 到门价（含关税、清关、派送），基于标准包装 (2个航空箱，毛重58.5kg)。<br>
-        ⚡ 生产周期 3-5 个工作日，具体运费以最终报价为准。
+
+        <!-- 已选清单 -->
+        <ul class="selected-list" id="selected-list">
+          <li class="empty">尚未选择任何项目</li>
+        </ul>
+
+        <!-- 运费计算 -->
+        <div class="shipping-section">
+          <label>🌍 目的国家 / 地区</label>
+          <select id="country-select">
+            <option value="">请选择国家</option>
+          </select>
+
+          <label>📍 具体区域</label>
+          <select id="region-select">
+            <option value="">请先选择国家</option>
+          </select>
+
+          <label>🚢 运输方式</label>
+          <select id="method-select">
+            <option value="">请先选择区域</option>
+          </select>
+
+          <div class="shipping-info" id="shipping-info"></div>
+        </div>
+
+        <!-- 金额明细 -->
+        <div class="calc-row"><span>货物小计</span><span id="subtotal">$0</span></div>
+        <div class="calc-row discount" id="discount-row" style="display:none;"><span>订单折扣</span><span
+            id="discount">-$0</span></div>
+        <div class="calc-row"><span>运输费用</span><span id="shipping-cost">$0</span></div>
+        <div class="calc-row total"><span>总金额</span><span id="grand-total">$0</span></div>
+
+        <div class="note">
+          💡 运费为 DDP 到门价（含关税、清关、派送），基于标准包装 (2个航空箱，毛重58.5kg)。<br>
+          ⚡ 生产周期 3-5 个工作日，具体运费以最终报价为准。
+        </div>
       </div>
+
+
     </div>
+
   </div>
 
   <script>
@@ -386,59 +456,191 @@
       "currency": "USD",
       "dataVersion": "2026.10",
       "baseBoothModels": [
-        { "id": "1wood_booth_opt1", "nameCn": "PC+ipad", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 820 },
-        { "id": "1wood_booth_opt2", "nameCn": "PC+-双触屏", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 1013 },
-        { "id": "1wood_booth_opt3", "nameCn": "DSLR-ipad", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 450 },
-        { "id": "1wood_booth_opt4", "nameCn": "PC-横向15.6-一体机", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 1200 },
-        { "id": "1wood_booth_opt5", "nameCn": "PC+单触屏", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 820 },
-        { "id": "1wood_booth_opt6", "nameCn": "iPad", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 495 },
-        { "id": "1wood_booth_opt7", "nameCn": "PC-横向15.6-轻量", "nameEn": "Vintage Double-Sided Wooden Photo Booth (Turnkey)", "priceUsd": 850 },
+        {
+          "showImg": true, "id": "1wood_booth_opt1", "nameCn": "Dual Sided PC + iPad", "nameEn": "",
+          "introduction": "18.5 inch touchscreen with built-in PC;Intel Core i5 6th Gen processor, 8GB RAM and 256GB SSD;Built-in speaker and cooling fan;Bluetooth and Wi-Fi support;Integrated power system;Adjustable camera mount;Front iPad slot panel;Protective flight case packaging",
+          "weight": 0, "priceUsd": 820
+        },
+        {
+          "showImg": true, "id": "1wood_booth_opt2", "nameCn": "Dual Sided Dual Touchscreen", "nameEn": "",
+          "introduction": "Dual touchscreen design: 18.5 inch + 14 inch ;Built-in PC configuration;Integrated power system;Adjustable camera mount;Wooden enclosure with vintage styling;Supports customizable accessories and finishe",
+          "weight": 0, "priceUsd": 1013
+        },
+        {
+          "showImg": true, "id": "1wood_booth_opt3", "nameCn": "Single Sided iPad + DSLR", "nameEn": "",
+          "introduction": "",
+          "weight": 0, "priceUsd": 450
+        },
+        {
+          "showImg": true, "id": "1wood_booth_opt4", "nameCn": "15.6\" Touchscreen with Printer Support", "nameEn": "",
+          "introduction": "15.6\" horizontal touchscreen with built-in PC;          Printer-compatible design with pull-out photo drawer;          Camera mounting position;          LED fill light;          Three-leg stand;          Natural oak-style wooden finish;          Compatible with DNP DS620 printer;",
+          "weight": 0, "priceUsd": 1200
+        },
+        {
+          "showImg": true, "id": "1wood_booth_opt5", "nameCn": "Single Sided 14\" Touchscreen", "nameEn": "",
+          "introduction": "",
+          "weight": 0, "priceUsd": 820
+        },
+        {
+          "showImg": true, "id": "1wood_booth_opt6", "nameCn": "Single Sided iPad Shell", "nameEn": "",
+          "introduction": "",
+          "weight": 0, "priceUsd": 495
+        },
+        {
+          "showImg": true, "id": "1wood_booth_opt7", "nameCn": "Single Sided 15.6\" Touchscreen", "nameEn": "",
+          "introduction": "",
+          "weight": 0, "priceUsd": 850
+        },
       ],
 
       "accessoriesAndModules": {
         "printerStands": [
-          { "id": "2acc_stand_11", "nameCn": "适配DPN RX1HS", "priceUsd": 250 },
-          { "id": "2acc_stand_12", "nameCn": "适配DPN DS620", "priceUsd": 250 },
-          { "id": "2acc_stand_13", "nameCn": "适配HITI P525L", "priceUsd": 250 },
-          { "id": "2acc_stand_14", "nameCn": "适配DNP QW410", "priceUsd": 280 },
-          { "id": "2acc_stand_15", "nameCn": "起订定制款", "priceUsd": 280 },
+          {
+            "showImg": true, "id": "2acc_stand_11", "nameCn": "适配DPN RX1HS / HITI P525L",
+            "introduction": "",
+            "weight": 0, "priceUsd": 250
+          },
+          {
+            "showImg": true, "id": "2acc_stand_12", "nameCn": "适配DPN DS620 ",
+            "introduction": "",
+            "weight": 0, "priceUsd": 250
+          },
+          {
+            "showImg": true, "id": "2acc_stand_14", "nameCn": "定制：适配QW410 D70 等",
+            "introduction": "",
+            "weight": 0, "priceUsd": 280
+          },
         ],
         "lighting": [
-          { "id": "3nice_GY180", "nameCn": "NiceFoto GY180+柔光伞", "priceUsd": 80 },
-          { "id": "3godox_ms200v", "nameCn": "GODOX MS200V+雷达罩+引闪器", "priceUsd": 120 },
-          { "id": "3godox_ms300v", "nameCn": "GODOX MS300V+雷达罩+引闪器", "priceUsd": 160 },
-          { "id": "3godox_ms3002v", "nameCn": "GODOX SK300IIV+雷达罩+引闪器", "priceUsd": 160 },
-          { "id": "3godox_ms4002v", "nameCn": "GODOX SK400IIV+雷达罩+引闪器", "priceUsd": 180 },
+          {
+            "showImg": true, "id": "3nice_GY180", "nameCn": "NiceFoto GY180+柔光伞",
+            "introduction": "",
+            "weight": 0, "priceUsd": 80
+          },
+          {
+            "showImg": true, "id": "3godox_ms200v", "nameCn": "GODOX MS200V+雷达罩+引闪器",
+            "introduction": "",
+            "weight": 0, "priceUsd": 120
+          },
+          {
+            "showImg": true, "id": "3godox_ms300v", "nameCn": "GODOX MS300V+雷达罩+引闪器",
+            "introduction": "",
+            "weight": 0, "priceUsd": 160
+          },
+          {
+            "showImg": true, "id": "3godox_ms3002v", "nameCn": "GODOX SK300IIV+雷达罩+引闪器",
+            "introduction": "",
+            "weight": 0, "priceUsd": 160
+          },
+          {
+            "showImg": true, "id": "3godox_ms4002v", "nameCn": "GODOX SK400IIV+雷达罩+引闪器",
+            "introduction": "",
+            "weight": 0, "priceUsd": 180
+          },
         ],
         "lightStand": [
-          { "id": "4stand_01", "nameCn": "直杆支架15cm", "priceUsd": 2 },
-          { "id": "4stand_02", "nameCn": "直杆支架20cm", "priceUsd": 3 },
-          { "id": "4stand_03", "nameCn": "直杆支架25cm", "priceUsd": 5 },
-          { "id": "4stand_04", "nameCn": "三角支架", "priceUsd": 50 },
+          {
+            "showImg": true, "id": "4stand_01", "nameCn": "直杆支架15cm",
+            "introduction": "",
+            "weight": 0, "priceUsd": 2
+          },
+          {
+            "showImg": true, "id": "4stand_04", "nameCn": "三角支架",
+            "introduction": "",
+            "weight": 0, "priceUsd": 50
+          },
         ],
         "printers": [
-          { "id": "5acc_printer_rx1hs", "nameCn": "DNP RX1HS", "priceUsd": 676 },
-          { "id": "5acc_printer_rx1hspaper", "nameCn": "DNP RX1HS 相纸", "priceUsd": 229 },
-          { "id": "5acc_printer_ds620", "nameCn": "DNP DS620", "priceUsd": 1075 },
-          { "id": "5acc_printer_ds620paper", "nameCn": "DNP DS620 相纸", "priceUsd": 176 },
-          { "id": "5acc_printer_qw410", "nameCn": "DNP QW410", "priceUsd": 573 },
-          { "id": "5acc_printer_qw410paper", "nameCn": "DNP QW410  相纸", "priceUsd": 84 },
-          { "id": "5acc_printer_p525l", "nameCn": "HITI P525L", "priceUsd": 543 },
-          { "id": "5acc_printer_p525lpaper", "nameCn": "HITI P525L 相纸", "priceUsd": 152 },
+          {
+            "showImg": true, "id": "5acc_printer_rx1hs", "nameCn": "DNP RX1HS",
+            "introduction": "",
+            "weight": 0, "priceUsd": 676
+          },
+          {
+            "showImg": false, "id": "5acc_printer_rx1hspaper", "nameCn": "DNP RX1HS 相纸",
+            "introduction": "",
+            "weight": 0, "priceUsd": 229
+          },
+          {
+            "showImg": true, "id": "5acc_printer_ds620", "nameCn": "DNP DS620",
+            "introduction": "",
+            "weight": 0, "priceUsd": 1075
+          },
+          {
+            "showImg": false, "id": "5acc_printer_ds620paper", "nameCn": "DNP DS620 相纸",
+            "introduction": "",
+            "weight": 0, "priceUsd": 176
+          },
+          {
+            "showImg": true, "id": "5acc_printer_qw410", "nameCn": "DNP QW410",
+            "introduction": "",
+            "weight": 0, "priceUsd": 573
+          },
+          {
+            "showImg": false, "id": "5acc_printer_qw410paper", "nameCn": "DNP QW410  相纸",
+            "introduction": "",
+            "weight": 0, "priceUsd": 84
+          },
+          {
+            "showImg": true, "id": "5acc_printer_p525l", "nameCn": "HITI P525L",
+            "introduction": "",
+            "weight": 0, "priceUsd": 543
+          },
+          {
+            "showImg": false, "id": "5acc_printer_p525lpaper", "nameCn": "HITI P525L 相纸",
+            "introduction": "",
+            "weight": 0, "priceUsd": 152
+          },
 
         ],
         "camerasAndPower": [
-          { "id": "acc_cam_canon_r100", "nameCn": "佳能 Canon EOS R100 微单套机（含镜头）", "priceUsd": 470 }
+          {
+            "showImg": true, "id": "acc_cam_canon_r100", "nameCn": "佳能 Canon EOS R100 微单套机（含镜头）",
+            "introduction": "",
+            "weight": 0, "priceUsd": 470
+          }
         ],
         "audio": [
-          { "id": "7audio_marshall", "nameCn": "Marshal 蓝牙音箱", "priceUsd": 120 },
-          { "id": "7audio_pullRod", "nameCn": "行李箱拉杆", "priceUsd": 60 },
-          { "id": "7audio_Color", "nameCn": "定制颜色", "priceUsd": 80 },
-          { "id": "7audio_handle", "nameCn": "提手", "priceUsd": 20 },
-          { "id": "7audio_sftLightUmbrella", "nameCn": "柔光伞", "priceUsd": 10 },
-          { "id": "7audio_panelLock", "nameCn": "面板锁", "priceUsd": 5 },
-          // { "id": "7audio_sftLightUmbrella", "nameCn": "柔光伞", "priceUsd": 10 },
-          { "id": "7audio_roundpall", "nameCn": "面板圆角", "priceUsd": 50 }
+          {
+            "showImg": true, "id": "7audio_marshall", "nameCn": "Marshal 蓝牙音箱",
+            "introduction": "",
+            "weight": 0, "priceUsd": 120
+          },
+          {
+            "showImg": true, "id": "7audio_pullRod", "nameCn": "行李箱拉杆",
+            "introduction": "",
+            "weight": 0, "priceUsd": 60
+          },
+          {
+            "showImg": false, "id": "7audio_Color", "nameCn": "定制颜色",
+            "introduction": "",
+            "weight": 0, "priceUsd": 80
+          },
+          {
+            "showImg": true, "id": "7audio_handle", "nameCn": "提手",
+            "introduction": "",
+            "weight": 0, "priceUsd": 20
+          },
+          {
+            "showImg": true, "id": "7audio_motherBoard", "nameCn": "电脑主板i5-6th-8G",
+            "introduction": "",
+            "weight": 0, "priceUsd": 20
+          },
+          {
+            "showImg": true, "id": "7audio_sftLightUmbrella", "nameCn": "柔光伞",
+            "introduction": "",
+            "weight": 0, "priceUsd": 10
+          },
+          {
+            "showImg": false, "id": "7audio_panelLock", "nameCn": "面板锁",
+            "introduction": "",
+            "weight": 0, "priceUsd": 5
+          },
+          {
+            "showImg": true, "id": "7audio_roundpall", "nameCn": "面板圆角",
+            "introduction": "",
+            "weight": 0, "priceUsd": 50
+          }
         ],
 
       },
@@ -546,11 +748,11 @@
     let selectedIds = new Set(); // 所有多选id共用
     // let selectedPackageId = null;   // 套餐包互斥，且与主体型号互斥
     const itemMap = new Map();       // id -> { name, price, type }
-    const singleSelectTypes = ['baseBoothModels', 'printerStands', 'lighting', 'lightStand', 'printers', 'camerasAndPower'];
+    const singleSelectTypes = ['baseBoothModels', 'printerStands', 'lighting', 'lightStand', 'camerasAndPower']; // 'printers',
 
     // 构建扁平化映射
-    PRODUCT_DATA.baseBoothModels.forEach(m => itemMap.set(m.id, { id: m.id, name: m.nameCn, price: m.priceUsd, type: 'booth' }));
-    Object.values(PRODUCT_DATA.accessoriesAndModules).flat().forEach(a => itemMap.set(a.id, { id: a.id, name: a.nameCn, price: a.priceUsd, type: 'accessory' }));
+    PRODUCT_DATA.baseBoothModels.forEach(m => itemMap.set(m.id, { showImg: m.showImg, id: m.id, name: m.nameCn, price: m.priceUsd, type: 'booth' }));
+    Object.values(PRODUCT_DATA.accessoriesAndModules).flat().forEach(a => itemMap.set(a.id, { showImg: a.showImg, id: a.id, name: a.nameCn, price: a.priceUsd, type: 'accessory' }));
     // PRODUCT_DATA.recommendedTurnkeyPackages.forEach(p => itemMap.set(p.packageId, { name: p.packageNameCn, price: p.packagePriceUsd, type: 'package' }));
 
     // ================== 3. 渲染按钮 ==================
@@ -611,7 +813,23 @@
         // 选中的按钮高亮，未选中的取消高亮
         btn.classList.toggle('selected', selectedIds.has(btn.dataset.id));
       });
+      // 渲染图片
+      const previewSelected = document.getElementById('preview-selected');
+      const selectedIdsArray = [...selectedIds].sort((a, b) => {
+        return a.at(0) - b.at(0)
+      });
 
+
+      previewSelected.innerHTML = selectedIdsArray.length > 0
+        ? selectedIdsArray.map(id => {
+          const item = itemMap.get(id);
+          // return item.showImg  ? `<div class="preview-item"><img src="assets/images/quote/${id}.png" alt="${item.name}"></div>` : '';
+
+          return item.showImg ? `<div class="preview-item"><img src="assets/images/quote/${id}.png" alt="${item.name}"></div>` : '';
+          // return `<div class="preview-item"><img src="assets/images/quote/${id}.png" alt="${item.name}"></div>`;
+          // return ;
+        }).join('')
+        : '已选配件图片预览';
 
       // 已选清单
       const listEl = document.getElementById('selected-list');
@@ -723,8 +941,22 @@
       return method ? method.averageCostUsd : 0;
     }
 
+    function setDeaultSelection() {
+      // 默认选中三件套
+      const defaultBoothId = '1wood_booth_opt1';
+      const defaultPrinterStandId = '2acc_stand_11';
+      const defaultLightId = '3godox_ms200v';
+
+      toggleItem(defaultBoothId, 'baseBoothModels');
+      toggleItem(defaultPrinterStandId, 'printerStands');
+      toggleItem(defaultLightId, 'lighting');
+    }
     // ================== 初始化 ==================
     updateUI();
+    // ================== 选中默认三件套 ==================
+    setDeaultSelection();
+
+
   </script>
 </body>
 

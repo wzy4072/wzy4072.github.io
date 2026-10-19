@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wooden Photo Booth Configurator | COVIEN</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+
+    }
+
+    .headtitle {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 750;
+      line-height: 1.3;
+      color: #004EA0;
+      padding: 28px 16px 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 0 16px 26px;
+    }
+
+    .app {
+      display: flex;
+      gap: 20px;
+      max-width: 1500px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+    }
+
+    .leftblock {
+      flex: 2;
+      height: fit-content;
+
+    }
+
+    /* 左侧配置区 */
+    .config {
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+      margin-bottom: 20px;
+
+    }
+
+    .config h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #0f172a;
+      text-align: center;
+      color: #16d1cc;
+      margin-top: 16px;
+    }
+
+    .config .sub {
+      color: #64748b;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .group {
+      margin-bottom: 16px;
+    }
+
+    .group-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .group-title .badge {
+      background: #e2e8f0;
+      color: #475569;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .btn-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .opt-btn {
+      background: #fff;
+      border: 1.5px solid #cbd5e0;
+      border-radius: 10px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #334155;
+      cursor: pointer;
+      transition: .15s;
+      /* display: flex; */
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* #booth-btns  */
+    .opt-btn {
+      display: block;
+      width: 200px;
+    }
+
+    .opt-btn .price {
+      margin-left: 20px;
+    }
+
+
+    .opt-btn .price {
+      font-size: 16px;
+      color: #16d1cc;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .opt-btn:hover {
+      border-color: #16d1cc;
+      background: #f0fffe;
+    }
+
+    .opt-btn.selected {
+      background: #16d1cc;
+      border-color: #16d1cc;
+      color: #fff;
+    }
+
+    .opt-btn.selected .price {
+      color: #e0fffe;
+    }
+
+    /* 套餐包按钮特殊样式 */
+    .package-btn {
+      border-color: #ffcc22;
+      background: #fffef5;
+    }
+
+    .package-btn:hover {
+      border-color: #ff7722;
+      background: #fff8e6;
+    }
+
+    .package-btn.selected {
+      background: #ff7722;
+      border-color: #ff7722;
+      color: #fff;
+    }
+
+    .package-btn.selected .price {
+      color: #ffe6cc;
+    }
+
+    .rightblock {
+      flex: 1.2;
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+
+    }
+
+    /* 右侧汇总区 */
+    .summary {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+
+      margin-bottom: 20px;
+    }
+
+    .summary h2 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: #0f172a;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .selected-list {
+      list-style: none;
+      min-height: 120px;
+      max-height: 300px;
+      overflow-y: auto;
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 8px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 16px;
+    }
+
+    .selected-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 6px;
+      font-size: 13px;
+      border-bottom: 1px dashed #e2e8f0;
+      color: #334155;
+    }
+
+    .selected-list li:last-child {
+      border-bottom: none;
+    }
+
+    .selected-list .empty {
+      color: #94a3b8;
+      text-align: center;
+      padding: 24px 0;
+      font-style: italic;
+    }
+
+    .selected-list .price-tag {
+      font-weight: 600;
+      color: #0d9488;
+      white-space: nowrap;
+    }
+
+    .shipping-section {
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 16px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .shipping-section label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 6px;
+    }
+
+    .shipping-section select {
+      /* width: 100%; */
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e0;
+      background: #fff;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .shipping-section select:last-child {
+      margin-bottom: 0;
+    }
+
+    .shipping-info {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .calc-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      padding: 6px 0;
+      color: #475569;
+    }
+
+    .calc-row.discount {
+      color: #ff7722;
+    }
+
+    .calc-row.total {
+      font-size: 20px;
+
+      font-weight: 700;
+      color: #0f172a;
+      border-top: 2px solid #16d1cc;
+      padding-top: 14px;
+      margin-top: 10px;
+    }
+
+    .calc-row.total span:last-child {
+      color: #16d1cc;
+    }
+
+    #grand-total {
+      font-size: 26px;
+      color: #ff7722;
+    }
+
+    .note {
+      font-size: 11px;
+      color: #94a3b8;
+      background: #f1f5f9;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+
+    .preview-selected .preview-item {
+      display: inline-block;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    .preview-item img {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #00d0d9;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .08)
+    }
+
+    .preview-item img:nth-child(1) {
+      width: 100px;
+      height: 100px;
+    }
+
+    .shipselect1 {
+      width: 49%;
+    }
+
+    .shipselect2 {
+      width: 49%;
+    }
+
+    .shipselect3 {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="headtitle">Wooden Photo Booth Configurator</div>
+  <div class="subtitle">Choose your booth model, customize accessories, and get an estimated price instantly.</div>
+  <div class="app">
+    <div class="leftblock">
+      <div class="config">
+        <h2>Configure Main Photo Booth Accessories</h2>
+
+        <div class="group">
+          <div class="group-title">Booth Model <span class="badge" id="badge-booth"></span></div>
+          <div class="btn-grid" id="booth-btns"></div>
+        </div>
+
+        <div class="group">
+          <div class="group-title">Printer Stand <span class="badge" id="badge-stand"></span></div>
+          <div class="btn-grid" id="stand-btns"></div>
+        </div>
+
+        <div class="group">
+          <div class="group-title">Lighting System <span class="badge" id="badge-light"></span></div>
+          <div class="btn-grid" id="light-btns"></div>
+        </div>
+
+        <hr>
+        <h2>Configure Other Photo Booth Accessories</h2>
+
+        <div class="group">
+          <div class="group-title">Light Stand <span class="badge" id="badge-lightStand"></span></div>
+          <div class="btn-grid" id="lightStand-btns"></div>
+        </div>
+
+        <div class="group">
+          <div class="group-title">Printer <span class="badge" id="badge-printer"></span></div>
+          <div class="btn-grid" id="printer-btns"></div>
+        </div>
+
+        <div class="group">
+          <div class="group-title">Camera &amp; Power <span class="badge" id="badge-cam"></span></div>
+          <div class="btn-grid" id="cam-btns"></div>
+        </div>
+
+        <div class="group">
+          <div class="group-title">Custom Configuration Modules <span class="badge" id="badge-audio"></span></div>
+          <div class="btn-grid" id="audio-btns"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rightblock">
+      <div class="summary">
+        <div class="preview-selected" id="preview-selected">Selected accessory images will appear here</div>
+      </div>
+
+      <div class="summary">
+        <h2>🧾 Price Preview</h2>
+
+        <ul class="selected-list" id="selected-list">
+          <li class="empty">No items selected yet</li>
+        </ul>
+
+        <div class="shipping-section">
+          <label>🌍 Destination Country / Region</label>
+          <select class="shipselect1" id="country-select">
+            <option value="">Please select a country</option>
+          </select>
+
+          <!-- <label>📍 Specific City / Area</label> -->
+          <select class="shipselect2" id="region-select">
+            <option value="">Please select a country first</option>
+          </select>
+
+          <!-- <label>🚢 Shipping Method</label> -->
+          <select class="shipselect3" id="method-select">
+            <option value="">Please select an area first</option>
+          </select>
+
+          <div class="shipping-info" id="shipping-info"></div>
+        </div>
+
+        <div class="calc-row"><span>Merchandise Subtotal</span><span id="subtotal">$0</span></div>
+        <div class="calc-row discount" id="discount-row" style="display:none;"><span>Order Discount</span><span
+            id="discount">-$0</span></div>
+        <div class="calc-row"><span>Shipping Cost</span><span id="shipping-cost">$0</span></div>
+        <div class="calc-row total"><span>Grand Total</span><span id="grand-total">$0</span></div>
+
+        <div class="note">
+          💡 Shipping is DDP door-to-door (duties, customs clearance and delivery included), based on standard packaging
+          (2 flight cases, gross weight 58.5 kg).<br>
+          ⚡ Production lead time is 3-5 business days; final shipping cost is subject to the official quotation.
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/simplified.js"></script>
+
+  <script>
+    // ================== 1. 嵌入你提供的 JSON 数据 ==================
+
+
+    // ================== 2. 状态管理 ==================
+    // let selectedBooth = null;
+    // let selectedPrinterStand = null;
+    // let selectedLight = null;
+    // let selectedLightStand = null;
+    // let selectedPrinter = null;
+    // let selectedCam = null;
+
+    let selectIdMap = {};
+    let selectedIds = new Set(); // 所有多选id共用
+    // let selectedPackageId = null;   // 套餐包互斥，且与主体型号互斥
+    const itemMap = new Map();       // id -> { name, price, type }
+    const singleSelectTypes = ['baseBoothModels', 'printerStands', 'lighting', 'lightStand', 'camerasAndPower']; // 'printers',
+
+    // 构建扁平化映射
+    PRODUCT_DATA.baseBoothModels.forEach(m => itemMap.set(m.id, { showImg: m.showImg, id: m.id, name: m.nameCn, price: m.priceUsd, type: 'booth', weight: Number(m.weight) || 0 }));
+    Object.values(PRODUCT_DATA.accessoriesAndModules).flat().forEach(a => itemMap.set(a.id, {
+      showImg: a.showImg, id: a.id, name: a.nameCn, price: a.priceUsd,
+      weight: Number(a.weight) || 0,
+      type: 'accessory'
+    }));
+    // PRODUCT_DATA.recommendedTurnkeyPackages.forEach(p => itemMap.set(p.packageId, { name: p.packageNameCn, price: p.packagePriceUsd, type: 'package' }));
+
+    // ================== 3. 渲染按钮 ==================
+    function renderButtons(containerId, items, type) {
+      const box = document.getElementById(containerId);
+      box.innerHTML = '';
+      items.forEach(item => {
+        const id = item.id || item.packageId;
+        const name = item.nameCn || item.packageNameCn;
+        const price = item.priceUsd || item.packagePriceUsd;
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn' + (type === 'package' ? ' package-btn' : '');
+        btn.dataset.id = id;
+        btn.innerHTML = `${name}<span class="price">$${price}</span>`;
+        btn.addEventListener('click', () => toggleItem(id, type));
+        box.appendChild(btn);
+      });
+      // 更新 badge
+      const badge = document.getElementById('badge-' + containerId.replace('-btns', ''));
+      if (badge) badge.textContent = items.length + '款';
+    }
+
+    // 初始化所有按钮
+    renderButtons('booth-btns', PRODUCT_DATA.baseBoothModels, 'baseBoothModels');
+    // renderButtons('package-btns', PRODUCT_DATA.recommendedTurnkeyPackages, 'package');
+    renderButtons('printer-btns', PRODUCT_DATA.accessoriesAndModules.printers, 'printers');
+    renderButtons('stand-btns', PRODUCT_DATA.accessoriesAndModules.printerStands, 'printerStands');
+    renderButtons('light-btns', PRODUCT_DATA.accessoriesAndModules.lighting, 'lighting');
+    renderButtons('lightStand-btns', PRODUCT_DATA.accessoriesAndModules.lightStand, 'lightStand');
+    renderButtons('audio-btns', PRODUCT_DATA.accessoriesAndModules.audio, 'audio');
+    renderButtons('cam-btns', PRODUCT_DATA.accessoriesAndModules.camerasAndPower, 'camerasAndPower');
+
+    // ================== 4. 选择逻辑 ==================
+    function toggleItem(id, type) {
+      if (singleSelectTypes.includes(type)) {
+        // 重复选择同一类型的配件时，取消选择
+        const oldId = selectIdMap[type];
+        if (oldId && oldId === id) {
+          selectedIds.delete(oldId);
+          selectIdMap[type] = null;
+        } else {
+          selectIdMap[type] = id;
+          selectedIds.delete(oldId);
+          selectedIds.add(id);
+        }
+      }// 普通配件
+      else {
+        if (selectedIds.has(id)) selectedIds.delete(id);
+        else selectedIds.add(id);
+      }
+      updateUI();
+    }
+
+    // ================== 5. 更新界面 ==================
+    function updateUI() {
+      // 按钮高亮
+      document.querySelectorAll('.opt-btn').forEach(btn => {
+        // 选中的按钮高亮，未选中的取消高亮
+        btn.classList.toggle('selected', selectedIds.has(btn.dataset.id));
+      });
+      // 渲染图片
+      const previewSelected = document.getElementById('preview-selected');
+      const selectedIdsArray = [...selectedIds].sort((a, b) => {
+        return a.at(0) - b.at(0)
+      });
+
+
+      previewSelected.innerHTML = selectedIdsArray.length > 0
+        ? selectedIdsArray.map(id => {
+          const item = itemMap.get(id);
+          // return item.showImg  ? `<div class="preview-item"><img src="assets/images/quote/${id}.png" alt="${item.name}"></div>` : '';
+
+          return item.showImg ? `<div class="preview-item"><img src="assets/images/quote/${id}.png" alt="${item.name}"></div>` : '';
+          // return `<div class="preview-item"><img src="assets/images/quote/${id}.png" alt="${item.name}"></div>`;
+          // return ;
+        }).join('')
+        : '已选配件图片预览';
+
+      // 已选清单
+      const listEl = document.getElementById('selected-list');
+      const items = [...selectedIds].map(id => itemMap.get(id)).filter(Boolean).sort((a, b) => {
+        // 保持产品价格明细，按照重要程度排序
+        return a.id.at(0) - b.id.at(0)
+      });
+
+      if (items.length === 0) {
+        listEl.innerHTML = '<li class="empty">尚未选择任何项目</li>';
+      } else {
+        listEl.innerHTML = items.map(it =>
+          `<li><span>${it.name}</span><span class="price-tag">$${it.price}</span></li>`
+        ).join('');
+      }
+
+      // 计算小计
+      let subtotal = items.reduce((s, it) => s + it.price, 0);
+
+      // 折扣
+      let discount = 10;
+      // for (const tier of SHIPPING_DATA.calculatorFormula.discountTiers) {
+      //   if (subtotal >= tier.minOrderSubtotal) { discount = tier.discountUsd; break; }
+      // }
+      // 如果选了套餐，套餐本身有折扣，取最大
+      // if (selectedPackageId) {
+      //   const pkg = PRODUCT_DATA.recommendedTurnkeyPackages.find(p => p.packageId === selectedPackageId);
+      //   if (pkg && pkg.discountUsd > discount) discount = pkg.discountUsd;
+      // }
+
+      // 运费
+      const shippingCost = getShippingCost();
+      // 总价
+      const grandTotal = subtotal - discount + shippingCost;
+
+      document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(0);
+      document.getElementById('shipping-cost').textContent = '$' + shippingCost.toFixed(0);
+      document.getElementById('grand-total').textContent = '$' + grandTotal.toFixed(0);
+
+      const discountRow = document.getElementById('discount-row');
+      if (discount > 0) {
+        discountRow.style.display = 'flex';
+        document.getElementById('discount').textContent = '-$' + discount.toFixed(0);
+      } else {
+        discountRow.style.display = 'none';
+      }
+    }
+
+    // ================== 6. 运费三级联动 ==================
+    const countrySel = document.getElementById('country-select');
+    const regionSel = document.getElementById('region-select');  // now = city
+    const methodSel = document.getElementById('method-select');  // now = scheme
+
+    SHIPPING_DATA.data.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c.countryCn; // use English country as value
+      opt.textContent = `${c.country}`;
+      countrySel.appendChild(opt);
+    });
+
+    countrySel.addEventListener('change', () => {
+      regionSel.innerHTML = '<option value="">Please select a city</option>';
+      methodSel.innerHTML = '<option value="">Please select a city first</option>';
+      document.getElementById('shipping-info').textContent = '';
+      const country = SHIPPING_DATA.data.find(c => c.countryCn === countrySel.value);
+      if (!country) { updateUI(); return; }
+      country.cities.forEach((city, idx) => {
+        const opt = document.createElement('option');
+        opt.value = idx; // index within country.cities
+        opt.textContent = `${city.city} (${city.zipcode})`;
+        regionSel.appendChild(opt);
+      });
+      updateUI();
+    });
+
+    regionSel.addEventListener('change', () => {
+      methodSel.innerHTML = '<option value="">Please select a shipping method</option>';
+      document.getElementById('shipping-info').textContent = '';
+      const country = SHIPPING_DATA.data.find(c => c.countryCn === countrySel.value);
+      if (!country) { updateUI(); return; }
+      const city = country.cities[Number(regionSel.value)];
+      if (!city) { updateUI(); return; }
+      city.schemes.forEach((s, idx) => {
+        const opt = document.createElement('option');
+        opt.value = idx;
+        opt.textContent = `[${s.mode}] · ${s.transitTime} · ¥${s.unitPricePerKg}/kg + ¥${s.fixedFeePerShipment}`;
+        methodSel.appendChild(opt);
+      });
+      updateUI();
+    });
+
+    methodSel.addEventListener('change', () => {
+      const s = getSelectedScheme();
+      const infoEl = document.getElementById('shipping-info');
+      if (s) {
+        const weight = getTotalWeight();
+        const rmb = weight * s.unitPricePerKg + s.fixedFeePerShipment;
+        infoEl.innerHTML = `✅ (${s.mode}) · Transit ${s.transitTime} · Chargeable weight ${weight.toFixed(1)} kg · Shipping ≈ ¥${rmb.toFixed(0)} (≈ $${(rmb * RMB_TO_USD).toFixed(0)})`;
+      } else {
+        infoEl.textContent = '';
+      }
+      updateUI();
+    });
+
+    function getSelectedScheme() {
+      const country = SHIPPING_DATA.data.find(c => c.countryCn === countrySel.value);
+      if (!country) return null;
+      const city = country.cities[Number(regionSel.value)];
+      if (!city) return null;
+      return city.schemes[Number(methodSel.value)] || null;
+    }
+
+    function getTotalWeight() {
+      return [...selectedIds]
+        .map(id => itemMap.get(id))
+        .filter(Boolean)
+        .reduce((sum, it) => sum + (Number(it.weight) || 0), 0);
+    }
+
+    // Shipping cost in USD
+    function getShippingCost() {
+      const s = getSelectedScheme();
+      if (!s) return 0;
+      const rmb = getTotalWeight() * s.unitPricePerKg + s.fixedFeePerShipment;
+      return rmb * RMB_TO_USD;
+
+    }
+
+    function setDeaultSelection() {
+      // 默认选中三件套
+      const defaultBoothId = '1wood_booth_opt1';
+      const defaultPrinterStandId = '2acc_stand_11';
+      const defaultLightId = '3godox_ms200v';
+
+      toggleItem(defaultBoothId, 'baseBoothModels');
+      toggleItem(defaultPrinterStandId, 'printerStands');
+      toggleItem(defaultLightId, 'lighting');
+    }
+    // ================== 初始化 ==================
+    updateUI();
+    // ================== 选中默认三件套 ==================
+    setDeaultSelection();
+
+
+  </script>
+</body>
+
+</html>
