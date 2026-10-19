@@ -1,390 +1,182 @@
 const SHIPPING_DATA = {
-  version: "2026.10-simplified-en",
+  version: "2026.10-flat-en",
   currency: "RMB",
   formula:
     "Total freight = chargeable weight (kg) * unit price (RMB/kg) + fixed fee per shipment (RMB)",
   notes:
-    "Sea freight / truck / rail only. Air freight, CBM-based pricing, and per-piece/overweight/oversize/pallet/per-kg surcharges removed. Max 2 schemes per city per mode; where transit times are similar, the lowest price is kept.",
+    "Sea freight / truck / rail only. Flat by country; when the same mode appears in multiple cities, the lowest unit price and shortest transit time are kept. Air freight and CBM-based pricing removed.",
   data: [
     {
       country: "United States",
       countryCn: "USA",
-      cities: [
+      schemes: [
         {
-          city: "Los Angeles / Norwalk, CA",
-          zipcode: "90650",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "Matson Express DDP",
-              transitTime: "15-20 days ",
-              unitPricePerKg: 23.2,
-              fixedFeePerShipment: 0,
-            },
-            {
-              mode: "Sea",
-              schemeName: "Yantian Special Sea Freight",
-              transitTime: "approx. 35 days ",
-              unitPricePerKg: 14.5,
-              fixedFeePerShipment: 0,
-            },
-          ],
+          mode: "Sea",
+          schemeName: "",
+          transitTime: "35 days",
+          unitPricePerKg: 14.0,
+          fixedFeePerShipment: 180,
         },
         {
-          city: "Green Bay, WI",
-          zipcode: "54311",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "Matson Express DDP",
-              transitTime: "15-20 days ",
-              unitPricePerKg: 23.5,
-              fixedFeePerShipment: 0,
-            },
-            {
-              mode: "Sea",
-              schemeName: "Economy Sea Freight",
-              transitTime: "approx. 35 days ",
-              unitPricePerKg: 14.5,
-              fixedFeePerShipment: 0,
-            },
-          ],
+          mode: "Sea",
+          schemeName: "",
+          transitTime: "25-30 days",
+          unitPricePerKg: 21.0,
+          fixedFeePerShipment: 0,
         },
         {
-          city: "Seattle, WA",
-          zipcode: "98121",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "Matson Direct Express DDP",
-              transitTime: "15-18 days ",
-              unitPricePerKg: 23.0,
-              fixedFeePerShipment: 0,
-            },
-            {
-              mode: "Sea",
-              schemeName: "Standard Sea Freight DDP",
-              transitTime: "30-35 days ",
-              unitPricePerKg: 14.0,
-              fixedFeePerShipment: 0,
-            },
-          ],
-        },
-        {
-          city: "Dallas / Houston, TX",
-          zipcode: "75001 / 77001",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "Express Transshipment DDP",
-              transitTime: "18-22 days ",
-              unitPricePerKg: 24.0,
-              fixedFeePerShipment: 0,
-            },
-            {
-              mode: "Sea",
-              schemeName: "All-Water Standard Sea Freight DDP",
-              transitTime: "35-40 days ",
-              unitPricePerKg: 15.0,
-              fixedFeePerShipment: 0,
-            },
-          ],
-        },
-        {
-          city: "New York, NY / Miami, FL (US East Coast)",
-          zipcode: "10001 / 33166",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "Matson US East Consolidated Express",
-              transitTime: "20-25 days ",
-              unitPricePerKg: 24.5,
-              fixedFeePerShipment: 0,
-            },
-            {
-              mode: "Sea",
-              schemeName: "US East All-Water Sea Freight",
-              transitTime: "35-45 days ",
-              unitPricePerKg: 15.5,
-              fixedFeePerShipment: 0,
-            },
-          ],
+          mode: "Sea",
+          schemeName: "",
+          transitTime: "15-20 days",
+          unitPricePerKg: 23.0,
+          fixedFeePerShipment: 0,
         },
       ],
     },
     {
       country: "France",
       countryCn: "France",
-      cities: [
+      schemes: [
         {
-          city: "Avignon",
-          zipcode: "84140",
-          schemes: [
-            {
-              mode: "Truck",
-              schemeName: "China-Europe Truck (DDP)",
-              transitTime: "30-35 days ",
-              unitPricePerKg: 28.0,
-              fixedFeePerShipment: 100,
-            },
-            {
-              mode: "Rail",
-              schemeName: "China-Europe Railway Express DDP",
-              transitTime: "30-35 days ",
-              unitPricePerKg: 17.0,
-              fixedFeePerShipment: 150,
-            },
-            {
-              mode: "Sea",
-              schemeName: "France Standard Sea Freight DDP",
-              transitTime: "50-55 days ",
-              unitPricePerKg: 14.5,
-              fixedFeePerShipment: 150,
-            },
-          ],
+          mode: "Sea",
+          schemeName: "France Standard Sea Freight DDP",
+          transitTime: "50-60 days",
+          unitPricePerKg: 15.5,
+          fixedFeePerShipment: 200,
         },
         {
-          city: "Baillargues / Montpellier",
-          zipcode: "34670",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "France Sea Freight DDP Option 1",
-              transitTime: "50-55 days ",
-              unitPricePerKg: 14.5,
-              fixedFeePerShipment: 150,
-            },
-          ],
+          mode: "Rail",
+          schemeName: "China-Europe Railway Express DDP",
+          transitTime: "30-35 days",
+          unitPricePerKg: 17.0,
+          fixedFeePerShipment: 150,
         },
         {
-          city: "Paris / Île-de-France",
-          zipcode: "75001 - 75020",
-          schemes: [
-            {
-              mode: "Truck",
-              schemeName: "Paris Truck DDP",
-              transitTime: "28-32 days ",
-              unitPricePerKg: 27.0,
-              fixedFeePerShipment: 100,
-            },
-            {
-              mode: "Rail",
-              schemeName: "China-Europe Railway DDP",
-              transitTime: "30-35 days ",
-              unitPricePerKg: 17.0,
-              fixedFeePerShipment: 150,
-            },
-            {
-              mode: "Sea",
-              schemeName: "France Standard Sea Freight DDP",
-              transitTime: "45-50 days ",
-              unitPricePerKg: 14.0,
-              fixedFeePerShipment: 100,
-            },
-          ],
+          mode: "Truck",
+          schemeName: "China-Europe Truck (DDP)",
+          transitTime: "25-30 days",
+          unitPricePerKg: 27.0,
+          fixedFeePerShipment: 100,
         },
       ],
     },
     {
       country: "United Kingdom",
       countryCn: "UK",
-      cities: [
+      schemes: [
         {
-          city: "Milton Keynes",
-          zipcode: "MK10 9XL",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "UK Express Sea Freight DDP",
-              transitTime: "25-30 days ",
-              unitPricePerKg: 21.0,
-              fixedFeePerShipment: 0,
-            },
-            {
-              mode: "Sea",
-              schemeName: "UK Standard Sea Freight DDP",
-              transitTime: "45-50 days ",
-              unitPricePerKg: 14.0,
-              fixedFeePerShipment: 100,
-            },
-          ],
+          mode: "Sea",
+          schemeName: "",
+          transitTime: "50-60 days",
+          unitPricePerKg: 13.5,
+          fixedFeePerShipment: 150,
         },
         {
-          city: "Dunstable / Bedfordshire",
-          zipcode: "LU5 5SD",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "UK Standard Sea Freight DDP",
-              transitTime: "45-50 days ",
-              unitPricePerKg: 14.5,
-              fixedFeePerShipment: 100,
-            },
-            {
-              mode: "Rail",
-              schemeName: "China-Europe Railway to UK",
-              transitTime: "35-40 days ",
-              unitPricePerKg: 18.0,
-              fixedFeePerShipment: 150,
-            },
-          ],
+          mode: "Truck",
+          schemeName: "",
+          transitTime: "30-35 days",
+          unitPricePerKg: 19,
+          fixedFeePerShipment: 100,
         },
         {
-          city: "London / Greater London",
-          zipcode: "E1, EC1, SE1, etc.",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "London Express Sea Line DDP",
-              transitTime: "25-28 days ",
-              unitPricePerKg: 20.5,
-              fixedFeePerShipment: 0,
-            },
-            {
-              mode: "Sea",
-              schemeName: "London Economy Sea Freight DDP",
-              transitTime: "40-48 days ",
-              unitPricePerKg: 13.5,
-              fixedFeePerShipment: 100,
-            },
-          ],
+          mode: "Air",
+          schemeName: "",
+          transitTime: "12-15days",
+          unitPricePerKg: 51.0,
+          fixedFeePerShipment: 150,
         },
       ],
     },
     {
       country: "Germany",
       countryCn: "Germany",
-      cities: [
+      schemes: [
         {
-          city: "Berlin / Frankfurt / Munich and nationwide",
-          zipcode: "Nationwide Germany",
-          schemes: [
-            {
-              mode: "Truck",
-              schemeName: "China-Europe Truck DDP",
-              transitTime: "28-32 days ",
-              unitPricePerKg: 26.0,
-              fixedFeePerShipment: 100,
-            },
-            {
-              mode: "Rail",
-              schemeName: "China-Europe Railway Express DDP",
-              transitTime: "30-35 days ",
-              unitPricePerKg: 16.5,
-              fixedFeePerShipment: 150,
-            },
-            {
-              mode: "Sea",
-              schemeName: "Standard Sea Freight DDP",
-              transitTime: "45-50 days ",
-              unitPricePerKg: 13.5,
-              fixedFeePerShipment: 100,
-            },
-          ],
+          mode: "Truck",
+          schemeName: "China-Europe Truck DDP",
+          transitTime: "28-32 days",
+          unitPricePerKg: 26.0,
+          fixedFeePerShipment: 100,
+        },
+        {
+          mode: "Rail",
+          schemeName: "China-Europe Railway Express DDP",
+          transitTime: "30-35 days",
+          unitPricePerKg: 16.5,
+          fixedFeePerShipment: 150,
+        },
+        {
+          mode: "Sea",
+          schemeName: "Standard Sea Freight DDP",
+          transitTime: "45-50 days",
+          unitPricePerKg: 13.5,
+          fixedFeePerShipment: 100,
         },
       ],
     },
     {
       country: "Canada",
       countryCn: "Canada",
-      cities: [
+      schemes: [
         {
-          city: "Belleville / Toronto area, ON",
-          zipcode: "K8N 0K9 / M5H",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "Canada Slow Boat Direct DDP",
-              transitTime: "33-38 days ",
-              unitPricePerKg: 20.7,
-              fixedFeePerShipment: 0,
-            },
-          ],
+          mode: "Sea",
+          schemeName: "Canada Express Sea Freight DDP",
+          transitTime: "28-35 days",
+          unitPricePerKg: 21.0,
+          fixedFeePerShipment: 0,
         },
         {
-          city: "Calgary, AB",
-          zipcode: "T2E 0J3",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "Canada Express Sea Freight DDP",
-              transitTime: "28-35 days ",
-              unitPricePerKg: 21.0,
-              fixedFeePerShipment: 0,
-            },
-            {
-              mode: "Sea",
-              schemeName: "Canada Slow Boat Sea Freight DDP",
-              transitTime: "33-38 days ",
-              unitPricePerKg: 19.5,
-              fixedFeePerShipment: 0,
-            },
-          ],
+          mode: "Sea",
+          schemeName: "Canada Slow Boat Direct DDP",
+          transitTime: "33-38 days",
+          unitPricePerKg: 19.5,
+          fixedFeePerShipment: 0,
         },
       ],
     },
     {
       country: "Australia",
       countryCn: "Australia",
-      cities: [
+      schemes: [
         {
-          city: "Sydney / Melbourne / Brisbane",
-          zipcode: "2000 / 3000 / 4000",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "Australia Direct Sea Line DDP",
-              transitTime: "25-32 days ",
-              unitPricePerKg: 18.0,
-              fixedFeePerShipment: 0,
-            },
-          ],
+          mode: "Sea",
+          schemeName: "Australia Direct Sea Line DDP",
+          transitTime: "25-32 days",
+          unitPricePerKg: 18.0,
+          fixedFeePerShipment: 0,
         },
       ],
     },
     {
       country: "Netherlands",
       countryCn: "Netherlands",
-      cities: [
+      schemes: [
         {
-          city: "Veenendaal / Zoetermeer",
-          zipcode: "3901JV / 2728BH",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName: "Netherlands Sea Freight DDP Option 1",
-              transitTime: "50-55 days ",
-              unitPricePerKg: 14.5,
-              fixedFeePerShipment: 150,
-            },
-            {
-              mode: "Truck",
-              schemeName: "Rail/Truck Pickup",
-              transitTime: "30-35 days ",
-              unitPricePerKg: 14.0,
-              fixedFeePerShipment: 0,
-            },
-          ],
+          mode: "Sea",
+          schemeName: "Netherlands Sea Freight DDP Option 1",
+          transitTime: "50-55 days",
+          unitPricePerKg: 14.5,
+          fixedFeePerShipment: 150,
+        },
+        {
+          mode: "Truck",
+          schemeName: "Rail/Truck Pickup",
+          transitTime: "30-35 days",
+          unitPricePerKg: 14.0,
+          fixedFeePerShipment: 0,
         },
       ],
     },
     {
       country: "Malaysia",
       countryCn: "Malaysia",
-      cities: [
+      schemes: [
         {
-          city: "Peninsular Malaysia (Kuala Lumpur / Penang / Johor Bahru, etc.)",
-          zipcode: "50000",
-          schemes: [
-            {
-              mode: "Sea",
-              schemeName:
-                "West Malaysia Door-to-Door Sea Freight (Tax Included)",
-              transitTime: "15-20 days ",
-              unitPricePerKg: 11.0,
-              fixedFeePerShipment: 0,
-            },
-          ],
+          mode: "Sea",
+          schemeName: "West Malaysia Door-to-Door Sea Freight (Tax Included)",
+          transitTime: "15-20 days",
+          unitPricePerKg: 11.0,
+          fixedFeePerShipment: 0,
         },
       ],
     },
@@ -482,7 +274,7 @@ const PRODUCT_DATA = {
         priceUsd: 250,
       },
       {
-        showImg: true,
+        showImg: false,
         id: "2acc_stand_14",
         nameCn: "Customizable to Fit QW410, D70 and Other Printers",
         introduction: "",
@@ -660,7 +452,7 @@ const PRODUCT_DATA = {
         priceUsd: 20,
       },
       {
-        showImg: true,
+        showImg: false,
         id: "7audio_motherBoard",
         nameCn: "motherBoard Update i5-6th-8G",
         introduction: "",
@@ -700,5 +492,4 @@ const PRODUCT_DATA = {
   // ]
 };
 
- 
 const RMB_TO_USD = 0.14; // TODO: 按实际汇率调整

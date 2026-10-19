@@ -4,7 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wooden Photo Booth Configurator | COVIEN</title>
+  <title>Wooden Photo Booth Price Configurator | COVIEN</title>
+  <meta name="description"
+    content="Configure your wooden photo booth: choose booth model, printer stand, lighting, printers and camera, select destination country and get an estimated DDP shipping cost instantly. COVIEN professional photo booth manufacturer.">
+  <meta name="keywords"
+    content="wooden photo booth configurator, photo booth price calculator, photo booth shipping cost, DDP photo booth, photo booth manufacturer, COVIEN">
+  <meta name="author" content="COVIEN">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://covien.net/quote.html">
+  <meta property="og:title" content="Wooden Photo Booth Price Configurator | COVIEN">
+  <meta property="og:description"
+    content="Configure your wooden photo booth and get an estimated DDP shipping cost instantly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://covien.net/quote.html">
+  <meta property="og:image" content="https://covien.net/images/photo-booth.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wooden Photo Booth Price Configurator | COVIEN">
+  <meta name="twitter:description"
+    content="Configure your wooden photo booth and get an estimated DDP shipping cost instantly.">
   <style>
     * {
       box-sizing: border-box;
@@ -24,13 +41,26 @@
 
     }
 
+    .back-home {
+      display: inline-block;
+      margin: 16px 0 0 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #004EA0;
+      text-decoration: none;
+    }
+
+    .back-home:hover {
+      text-decoration: underline;
+    }
+
     .headtitle {
       text-align: center;
       font-size: 30px;
       font-weight: 750;
       line-height: 1.3;
       color: #004EA0;
-      padding: 28px 16px 8px;
+      padding: 0px 16px 8px;
     }
 
     .subtitle {
@@ -71,7 +101,7 @@
       margin-bottom: 16px;
       color: #0f172a;
       text-align: center;
-      color: #16d1cc;
+      color: #004EA0;
       margin-top: 16px;
     }
 
@@ -140,19 +170,19 @@
 
     .opt-btn .price {
       font-size: 16px;
-      color: #16d1cc;
+      color: #004EA0;
       font-weight: 700;
       margin-top: 2px;
     }
 
     .opt-btn:hover {
-      border-color: #16d1cc;
+      border-color: #004EA0;
       background: #f0fffe;
     }
 
     .opt-btn.selected {
-      background: #16d1cc;
-      border-color: #16d1cc;
+      background: #004EA0;
+      border-color: #004EA0;
       color: #fff;
     }
 
@@ -241,7 +271,7 @@
 
     .selected-list .price-tag {
       font-weight: 600;
-      color: #0d9488;
+      color: #004EA0;
       white-space: nowrap;
     }
 
@@ -299,13 +329,13 @@
 
       font-weight: 700;
       color: #0f172a;
-      border-top: 2px solid #16d1cc;
+      border-top: 2px solid #004EA0;
       padding-top: 14px;
       margin-top: 10px;
     }
 
     .calc-row.total span:last-child {
-      color: #16d1cc;
+      color: #004EA0;
     }
 
     #grand-total {
@@ -332,7 +362,7 @@
     .preview-item img {
       width: 50px;
       height: 50px;
-      border: 1px solid #00d0d9;
+      border: 1px solid #004EA0;
       box-shadow: 0 1px 4px rgba(0, 0, 0, .08)
     }
 
@@ -352,12 +382,46 @@
     .shipselect3 {
       width: 100%;
     }
+
+    .price-disclaimer {
+      font-size: 12px;
+      color: #b45309;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
   </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ6H4P4YNQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-QZ6H4P4YNQ');
+</script> -->
+<script>
+  window.addEventListener('load', function () {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QZ6H4P4YNQ';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-QZ6H4P4YNQ');
+  });
+</script>
 
 <body>
+  <a href="index.html" class="back-home">← Back to COVIEN</a>
+
   <div class="headtitle">Wooden Photo Booth Configurator</div>
-  <div class="subtitle">Choose your booth model, customize accessories, and get an estimated price instantly.</div>
+  <!-- <div class="subtitle">Choose your booth model, customize accessories, and get an estimated price instantly.</div> -->
   <div class="app">
     <div class="leftblock">
       <div class="config">
@@ -417,29 +481,42 @@
 
         <div class="shipping-section">
           <label>🌍 Destination Country / Region</label>
-          <select class="shipselect1" id="country-select">
+          <select class="shipselect1" id="country-select" style="width:100%;">
             <option value="">Please select a country</option>
           </select>
 
-          <!-- <label>📍 Specific City / Area</label> -->
+          <select class="shipselect3" id="method-select">
+            <option value="">Please select a country first</option>
+          </select>
+
+          <div class="shipping-info" id="shipping-info"></div>
+        </div>
+
+        <!-- <div class="shipping-section">
+          <label>🌍 Destination Country / Region</label>
+          <select class="shipselect1" id="country-select">
+            <option value="">Please select a country</option>
+          </select>
           <select class="shipselect2" id="region-select">
             <option value="">Please select a country first</option>
           </select>
 
-          <!-- <label>🚢 Shipping Method</label> -->
           <select class="shipselect3" id="method-select">
             <option value="">Please select an area first</option>
           </select>
 
           <div class="shipping-info" id="shipping-info"></div>
-        </div>
+        </div> -->
 
         <div class="calc-row"><span>Merchandise Subtotal</span><span id="subtotal">$0</span></div>
         <div class="calc-row discount" id="discount-row" style="display:none;"><span>Order Discount</span><span
             id="discount">-$0</span></div>
         <div class="calc-row"><span>Shipping Cost</span><span id="shipping-cost">$0</span></div>
         <div class="calc-row total"><span>Grand Total</span><span id="grand-total">$0</span></div>
-
+        <div class="price-disclaimer">
+          ⚠️ Shipping costs and discounts shown here are for reference only. Please contact our official store for the
+          final quotation.
+        </div>
         <div class="note">
           💡 Shipping is DDP door-to-door (duties, customs clearance and delivery included), based on standard packaging
           (2 flight cases, gross weight 58.5 kg).<br>
@@ -494,7 +571,7 @@
       });
       // 更新 badge
       const badge = document.getElementById('badge-' + containerId.replace('-btns', ''));
-      if (badge) badge.textContent = items.length + '款';
+      if (badge) badge.textContent = items.length + ' styles';
     }
 
     // 初始化所有按钮
@@ -602,42 +679,24 @@
 
     // ================== 6. 运费三级联动 ==================
     const countrySel = document.getElementById('country-select');
-    const regionSel = document.getElementById('region-select');  // now = city
-    const methodSel = document.getElementById('method-select');  // now = scheme
+    const methodSel = document.getElementById('method-select');
 
     SHIPPING_DATA.data.forEach(c => {
       const opt = document.createElement('option');
-      opt.value = c.countryCn; // use English country as value
-      opt.textContent = `${c.country}`;
+      opt.value = c.countryCn;
+      opt.textContent = c.country;
       countrySel.appendChild(opt);
     });
 
     countrySel.addEventListener('change', () => {
-      regionSel.innerHTML = '<option value="">Please select a city</option>';
-      methodSel.innerHTML = '<option value="">Please select a city first</option>';
-      document.getElementById('shipping-info').textContent = '';
-      const country = SHIPPING_DATA.data.find(c => c.countryCn === countrySel.value);
-      if (!country) { updateUI(); return; }
-      country.cities.forEach((city, idx) => {
-        const opt = document.createElement('option');
-        opt.value = idx; // index within country.cities
-        opt.textContent = `${city.city} (${city.zipcode})`;
-        regionSel.appendChild(opt);
-      });
-      updateUI();
-    });
-
-    regionSel.addEventListener('change', () => {
       methodSel.innerHTML = '<option value="">Please select a shipping method</option>';
       document.getElementById('shipping-info').textContent = '';
       const country = SHIPPING_DATA.data.find(c => c.countryCn === countrySel.value);
       if (!country) { updateUI(); return; }
-      const city = country.cities[Number(regionSel.value)];
-      if (!city) { updateUI(); return; }
-      city.schemes.forEach((s, idx) => {
+      country.schemes.forEach((s, idx) => {
         const opt = document.createElement('option');
         opt.value = idx;
-        opt.textContent = `[${s.mode}] · ${s.transitTime} · ¥${s.unitPricePerKg}/kg + ¥${s.fixedFeePerShipment}`;
+        opt.textContent = ` ¥${s.unitPricePerKg}/kg + ¥${s.fixedFeePerShipment} · [${s.mode}] · ${s.transitTime} `;
         methodSel.appendChild(opt);
       });
       updateUI();
@@ -659,9 +718,7 @@
     function getSelectedScheme() {
       const country = SHIPPING_DATA.data.find(c => c.countryCn === countrySel.value);
       if (!country) return null;
-      const city = country.cities[Number(regionSel.value)];
-      if (!city) return null;
-      return city.schemes[Number(methodSel.value)] || null;
+      return country.schemes[Number(methodSel.value)] || null;
     }
 
     function getTotalWeight() {
@@ -671,15 +728,12 @@
         .reduce((sum, it) => sum + (Number(it.weight) || 0), 0);
     }
 
-    // Shipping cost in USD
     function getShippingCost() {
       const s = getSelectedScheme();
       if (!s) return 0;
       const rmb = getTotalWeight() * s.unitPricePerKg + s.fixedFeePerShipment;
       return rmb * RMB_TO_USD;
-
     }
-
     function setDeaultSelection() {
       // 默认选中三件套
       const defaultBoothId = '1wood_booth_opt1';
