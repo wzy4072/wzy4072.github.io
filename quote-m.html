@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>木制拍照机配置器 | COVIEN</title>
+  <title>Wooden Photo Booth Configurator | COVIEN</title>
   <meta name="description"
-    content="手机端木制拍照机配置器：选择机型、打印机支架、灯光、打印机与相机，即时获取 DDP 门到门运费估算与总价。">
+    content="手机端Wooden Photo Booth Configurator：选择机型、打印机支架、灯光、打印机与相机，即时获取 DDP 门到门运费估算与总价。">
   <meta name="theme-color" content="#004EA0">
   <link rel="canonical" href="https://covien.net/quote-m.html">
 
@@ -689,8 +689,8 @@
 <body>
 
   <header class="topbar">
-    <a class="back" href="index.html" aria-label="返回首页">←</a>
-    <h1 class="page-title">木制拍照机配置器</h1>
+    <a class="back" href="index.html" aria-label="Back to home">←</a>
+    <h1 class="page-title">Wooden Photo Booth Configurator</h1>
     <div class="topbar-spacer"></div>
   </header>
 
@@ -698,10 +698,10 @@
 
   <div class="bottom-bar">
     <div class="bb-left">
-      <div class="bb-label">已选 <b id="bb-count">0</b> 项</div>
+      <div class="bb-label"> <b id="bb-count">0</b> selected</div>
       <div class="bb-total" id="bb-total">$0</div>
     </div>
-    <button class="bb-btn" id="bb-btn" disabled>查看报价 →</button>
+    <button class="bb-btn" id="bb-btn" disabled>View Quote →</button>
   </div>
 
   <div class="mask" id="mask"></div>
@@ -709,44 +709,44 @@
   <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
     <div class="sheet-grabber"></div>
     <div class="sheet-head">
-      <h2 id="sheet-title">🧾 报价明细</h2>
-      <button class="sheet-close" id="sheet-close" aria-label="关闭">✕</button>
+      <h2 id="sheet-title">🧾  Quote Summary</h2>
+      <button class="sheet-close" id="sheet-close" aria-label="Close">✕</button>
     </div>
 
     <div class="sheet-body">
       <section class="block">
-        <div class="block-head">已选配置</div>
+        <div class="block-head">Selected Configuration</div>
         <ul class="sel-list" id="sel-list"></ul>
       </section>
 
       <section class="block">
-        <div class="block-head">🌍 目的国家 / 地区</div>
+        <div class="block-head">🌍 Destination Country / Region</div>
         <select id="country-select" class="sel-input">
-          <option value="">请选择国家 / 地区</option>
+          <option value="">Please select a country / region</option>
         </select>
         <select id="method-select" class="sel-input" disabled>
-          <option value="">请先选择国家</option>
+          <option value="">Please select a country first</option>
         </select>
         <div class="ship-info" id="ship-info"></div>
       </section>
 
       <section class="block">
-        <div class="row"><span>商品小计</span><span id="sum-subtotal">$0</span></div>
-        <div class="row discount" id="sum-discount-row" style="display:none;"><span>订单优惠</span><span
+        <div class="row"><span>Merchandise Subtotal</span><span id="sum-subtotal">$0</span></div>
+        <div class="row discount" id="sum-discount-row" style="display:none;"><span>Order Discount</span><span
             id="sum-discount">-$0</span></div>
-        <div class="row"><span>运费估算</span><span id="sum-shipping">$0</span></div>
-        <div class="row total"><span>合计</span><span id="sum-total">$0</span></div>
+        <div class="row"><span>Estimated Shipping</span><span id="sum-shipping">$0</span></div>
+        <div class="row total"><span>Grand Total</span><span id="sum-total">$0</span></div>
       </section>
 
       <p class="note">
-        ⚠️ 运费及优惠仅供参考，最终报价以官方确认为准。<br>
-        💡 运费为 DDP 门到门（含关税、清关及派送），按标准包装估算。<br>
-        ⚡ 生产周期 3–5 个工作日。
+        ⚠️ Shipping costs and discounts are for reference only. Final quotation is subject to official confirmation.<br>
+        💡 Shipping is DDP door-to-door (duties, customs clearance and delivery included), estimated based on standard packaging.<br>
+        ⚡ Production lead time is 3–5 business days.
       </p>
     </div>
 
     <div class="sheet-foot">
-      <button class="cta" id="copy-btn">复制报价清单</button>
+      <button class="cta" id="copy-btn">Copy Quote</button>
     </div>
   </div>
 
@@ -817,7 +817,7 @@
          ========================================================= */
       const state = {
         ids: new Set(),
-        byType: {},          // 单选组：type -> id
+        byType: {},          // Single组：type -> id
         country: '',
         method: ''
       };
@@ -883,7 +883,7 @@
           head.innerHTML =
             '<span class="sec-icon">' + g.icon + '</span>' +
             '<span class="sec-title">' + esc(g.title) + '</span>' +
-            '<span class="sec-hint">' + (g.single ? '单选' : '多选') + '</span>' +
+            '<span class="sec-hint">' + (g.single ? 'Single' : 'Multi') + '</span>' +
             '<span class="sec-badge" data-badge="' + g.key + '">0</span>' +
             '<span class="chev">›</span>';
           head.addEventListener('click', () => sec.classList.toggle('collapsed'));

@@ -531,6 +531,9 @@
           ⚠️ Shipping costs and discounts shown here are for reference only. Please contact our official store for the
           final quotation.
         </div>
+        <button id="copy-quote-btn" style=" width:100%; margin-top:12px; padding:12px; border-radius:10px; background:linear-gradient(135deg,#0060c0,#004EA0); color:#fff; font-size:14px; font-weight:700; cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,78,160,.24);">📋 Copy Quote</button>
+
         <div class="note">
           💡 Shipping is DDP door-to-door (duties, customs clearance and delivery included), based on standard packaging
           (2 flight cases, gross weight 58.5 kg).<br>
@@ -758,6 +761,60 @@
       toggleItem(defaultPrinterStandId, 'printerStands');
       toggleItem(defaultLightId, 'lighting');
     }
+
+    // ================== 7. 复制报价 ==================
+    document.getElementById('copy-quote-btn').addEventListener('click', async () => {
+      const items = [...selectedIds].map(id => itemMap.get(id)).filter(Boolean)
+        .sort((a, b) => a.id.at(0) - b.id.at(0));
+      const subtotal = items.reduce((s, it) => s + it.price, 0);
+      const discount = subtotal > 0 ? 10 : 0;
+      const shippingCost = getShippingCost();
+
+      const L = ['COVIEN Wooden Photo Booth Quote', '——————————————'];
+      if (items.length) {
+        items.forEach(it => L.push('· ' + it.name + '   $' + it.price));
+      } else {
+        L.push('(No items selected)');
+      }
+      L.push('——————————————');
+      L.push('Merchandise Subtotal: $' + Math.round(subtotal));
+      if (discount > 0) L.push('Order Discount: -$' + Math.round(discount));
+
+      const country = SHIPPING_DATA.data.find(c => c.countryCn === countrySel.value);
+      if (country) {
+        L.push('Destination Country: ' + country.country);
+        const s = getSelectedScheme();
+        if (s) {
+          L.push('Shipping Method: ' + s.mode + ' (' + s.transitTime + ')');
+          L.push('Chargeable Weight: ' + getTotalWeight().toFixed(1) + ' kg');
+          L.push('Estimated Shipping: $' + Math.round(shippingCost));
+        }
+      }
+      L.push('Grand Total: $' + Math.round(subtotal - discount + shippingCost));
+      L.push('');
+      L.push('* Reference quote only. Final price is subject to official confirmation.');
+
+      const text = L.join('\n');
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          ta.remove();
+        }
+        const btn = document.getElementById('copy-quote-btn');
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => { btn.textContent = '📋 Copy Quote'; }, 1800);
+      } catch (e) {
+        alert('Copy failed, please take a screenshot.');
+      }
+    });
+
     // ================== 初始化 ==================
     updateUI();
     // ================== 选中默认三件套 ==================
