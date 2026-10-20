@@ -394,6 +394,20 @@
       line-height: 1.5;
     }
   </style>
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get('view') === 'mobile') return;   // 允许手动强制看桌面版
+        var ua = navigator.userAgent || '';
+        var isMobile = /Android|iPhone|iPod|iPad|Windows Phone|HarmonyOS|Mobile|MicroMessenger|BlackBerry|Opera Mini/i.test(ua);
+        var isNarrow = window.matchMedia('(max-width: 820px)').matches;
+        if (isMobile || isNarrow) {
+          location.replace('quote-m.html' + location.search + location.hash);
+        }
+      } catch (e) { }
+    })();
+  </script>
 </head>
 <!-- Google tag (gtag.js) -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ6H4P4YNQ"></script>
@@ -751,20 +765,7 @@
 
 
   </script>
-  <script>
-    (function () {
-      try {
-        var p = new URLSearchParams(location.search);
-        if (p.get('view') === 'mobile') return;   // 允许手动强制看桌面版
-        var ua = navigator.userAgent || '';
-        var isMobile = /Android|iPhone|iPod|iPad|Windows Phone|HarmonyOS|Mobile|MicroMessenger|BlackBerry|Opera Mini/i.test(ua);
-        var isNarrow = window.matchMedia('(max-width: 820px)').matches;
-        if (isMobile || isNarrow) {
-          location.replace('quote-m.html' + location.search + location.hash);
-        }
-      } catch (e) { }
-    })();
-  </script>
+
 </body>
 
 </html>

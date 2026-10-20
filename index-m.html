@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>COVIEN Photo Booth Manufacturer | Mobile</title>
+  <meta name="description"
+    content="COVIEN professional photo booth manufacturer: DSLR, iPad, wooden photo booths and accessories. Custom OEM solutions for event companies and rental businesses.">
+  <meta name="theme-color" content="#00d0d9">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="canonical" href="https://covien.net/index-m.html">
+  <!-- <link href="assets/css/main.css"> -->
+
+  <!-- 桌面端自动跳回桌面版 -->
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get('view') === 'desktop') return;   // 强制留在移动版
+        var ua = navigator.userAgent || '';
+        var isMobile = /Android|iPhone|iPod|iPad|Windows Phone|HarmonyOS|Mobile|MicroMessenger|BlackBerry|Opera Mini/i.test(ua);
+        var isNarrow = window.matchMedia('(max-width: 820px)').matches;
+        if (!isMobile && !isNarrow) {
+          location.replace('index.html' + location.search + location.hash);
+        }
+      } catch (e) { }
+    })();
+  </script>
+
+  <style>
+    :root {
+      --deep: #0033cc;
+      --cyan: #00d0d9;
+      --green: #72e07a;
+      --yellow: #ffcc22;
+      --orange: #ff7722;
+      --pink: #ff2288;
+      --text: #1a202c;
+      --text-2: #4a5568;
+      --text-3: #8a97a8;
+      --line: #e6ebf2;
+      --bg: #f5f8fc;
+      --safe-b: env(safe-area-inset-bottom, 0px);
+      --safe-t: env(safe-area-inset-top, 0px);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 62px;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      overscroll-behavior-y: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border: 0;
+    }
+
+    a {
+      color: var(--deep);
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0 0 10px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -.3px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    /* ============ 顶部导航 ============ */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      padding-top: calc(10px + var(--safe-t));
+      background: rgba(255, 255, 255, .94);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      backdrop-filter: saturate(180%) blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar .logo img {
+      height: 26px;
+      width: auto;
+    }
+
+    .topbar .spacer {
+      flex: 1;
+    }
+
+    .menu-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #f0f4f9;
+      color: var(--deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .menu-btn:active {
+      background: #e3ebf5;
+    }
+
+    /* 抽屉菜单 */
+    .menu-mask {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: rgba(15, 23, 42, .45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .26s ease;
+    }
+
+    .menu-mask.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .menu-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 95;
+      width: min(280px, 82vw);
+      background: #fff;
+      transform: translateX(102%);
+      transition: transform .3s cubic-bezier(.32, .72, 0, 1);
+      display: flex;
+      flex-direction: column;
+      padding: calc(16px + var(--safe-t)) 18px calc(16px + var(--safe-b));
+      box-shadow: -8px 0 30px rgba(15, 23, 42, .12);
+    }
+
+    .menu-panel.open {
+      transform: translateX(0);
+    }
+
+    .menu-panel h3 {
+      font-size: 14px;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+
+    .menu-panel a {
+      display: block;
+      padding: 13px 4px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .menu-panel a:active {
+      color: var(--cyan);
+    }
+
+    .menu-panel .close {
+      align-self: flex-end;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--text-2);
+      border: 0;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    /* ============ Hero ============ */
+    .hero {
+      position: relative;
+      padding: 46px 20px 40px;
+      text-align: center;
+      color: #fff;
+      background:
+        linear-gradient(160deg, rgba(0, 51, 204, .72), rgba(0, 208, 217, .55) 55%, rgba(255, 34, 136, .42)),
+        url('assets/images/header.webp') center/cover no-repeat;
+    }
+
+    .hero .brand-line {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, .18);
+      border: 1px solid rgba(255, 255, 255, .35);
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero h1 {
+      font-size: 25px;
+      line-height: 1.28;
+      margin: 0 0 14px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, .25);
+    }
+
+    .hero .cta-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .hero .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform .15s;
+    }
+
+    .hero .btn:active {
+      transform: scale(.96);
+    }
+
+    .hero .btn-primary {
+      background: #fff;
+      color: var(--deep);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .18);
+    }
+
+    .hero .btn-ghost {
+      background: rgba(255, 255, 255, .14);
+      border: 1.5px solid rgba(255, 255, 255, .55);
+      color: #fff;
+    }
+
+    /* ============ 通用 section ============ */
+    .sec {
+      padding: 34px 16px 8px;
+    }
+
+    .sec-head {
+      margin-bottom: 16px;
+    }
+
+    .sec-head .eyebrow {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 4px;
+    }
+
+    .sec-head h2 {
+      font-size: 21px;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .sec-head p {
+      font-size: 13.5px;
+      color: var(--text-3);
+      margin: 6px 0 0;
+    }
+
+    /* 卡片 */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, .05);
+    }
+
+    .card p {
+      color: var(--text-2);
+      font-size: 14px;
+      margin: 0 0 12px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card img {
+      border-radius: 12px;
+      margin-top: 12px;
+    }
+
+    .bullet {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bullet li {
+      position: relative;
+      padding: 9px 0 9px 24px;
+      font-size: 14px;
+      color: var(--text-2);
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .bullet li:last-child {
+      border-bottom: 0;
+    }
+
+    .bullet li::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 17px;
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      background: var(--cyan);
+      transform: rotate(45deg);
+    }
+
+    /* 产品网格 */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, .05);
+      display: flex;
+      flex-direction: column;
+      transition: transform .15s;
+    }
+
+    .product-card:active {
+      transform: scale(.98);
+    }
+
+    .product-card .ph {
+      aspect-ratio: 4 / 3;
+      background: #eef2f7;
+      overflow: hidden;
+    }
+
+    .product-card .ph img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-card .cap {
+      padding: 10px 12px 12px;
+    }
+
+    .product-card .cap h4 {
+      font-size: 13.5px;
+      margin: 0 0 4px;
+      line-height: 1.35;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .product-card .cap span {
+      font-size: 11px;
+      color: var(--text-3);
+      font-weight: 600;
+    }
+
+    /* 工厂图 */
+    .factory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .factory-grid .ph {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #eef2f7;
+      aspect-ratio: 4 / 3;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, .05);
+    }
+
+    .factory-grid .ph img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* FAQ 折叠 */
+    .faq-item {
+      background: #fff;
+      border-radius: 14px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, .05);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 16px;
+      text-align: left;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text);
+      border: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+    .faq-q:active {
+      background: #f8fafc;
+    }
+
+    .faq-q .ico {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #eef5ff;
+      color: var(--deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex: 0 0 22px;
+      transition: transform .22s ease;
+    }
+
+    .faq-item.open .faq-q .ico {
+      transform: rotate(45deg);
+      background: var(--cyan);
+      color: #fff;
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 500px;
+    }
+
+    .faq-a p {
+      padding: 0 16px 16px 48px;
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--text-2);
+    }
+
+    /* 用户/合作 */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .partner-grid .ph {
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      background: #fff center/contain no-repeat;
+      border: 1px solid var(--line);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, .04);
+    }
+
+    /* 联系 / 更多 */
+    .contact-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, .05);
+      margin-bottom: 12px;
+    }
+
+    .contact-card h3 {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin: 0 0 12px;
+    }
+
+    .contact-card .row-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: 14px;
+      color: var(--text-2);
+    }
+
+    .contact-card .row-line:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-card .row-line b {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .contact-card .row-line a {
+      color: var(--deep);
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .contact-card .k {
+      flex: 0 0 auto;
+      min-width: 76px;
+      font-size: 12px;
+      color: var(--text-3);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+
+    .more-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .more-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #fff;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, .05);
+    }
+
+    .more-list a::after {
+      content: '›';
+      color: #c3ccd8;
+      font-size: 18px;
+    }
+
+    .more-list a:active {
+      background: #f8fafc;
+    }
+
+    /* 页脚 */
+    .footer {
+      padding: 28px 16px calc(28px + var(--safe-b));
+      text-align: center;
+      color: var(--text-3);
+      font-size: 12.5px;
+    }
+
+    .footer a {
+      color: var(--deep);
+      font-weight: 600;
+    }
+
+    .footer .socials {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .footer .socials a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, .06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-2);
+    }
+
+    /* 回到顶部 */
+    .to-top {
+      position: fixed;
+      right: 14px;
+      bottom: calc(18px + var(--safe-b));
+      z-index: 60;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, .14);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: .25s ease;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .partner .partner-box-1 {
+      background: url(/assets//images/partner/partner-1.png) no-repeat center center/cover;
+    }
+
+    .partner .partner-box-2 {
+      background: url(/assets//images/partner/partner-2.png) no-repeat center center/cover;
+    }
+
+    .partner .partner-box-3 {
+      background: url(/assets//images/partner/partner-3.png) no-repeat center center/cover;
+    }
+
+    .partner .partner-box-4 {
+      background: url(/assets//images/partner/partner-4.png) no-repeat center center/cover;
+    }
+
+    .partner .partner-box-5 {
+      background: url(/assets//images/partner/partner-5.png) no-repeat center center/cover;
+    }
+
+    .partner .partner-box-6 {
+      background: url(/assets//images/partner/partner-6.png) no-repeat center center/cover;
+    }
+
+    .partner .partner-box-7 {
+      background: url(/assets//images/partner/partner-7.png) no-repeat center center/cover;
+    }
+
+    .partner .partner-box-8 {
+      background: url(/assets//images/partner/partner-8.png) no-repeat center center/cover;
+    }
+
+
+    /* 小屏微调 */
+    @media (max-width: 360px) {
+      .hero h1 {
+        font-size: 22px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ 顶部 ============ -->
+  <header class="topbar">
+    <a class="logo" href="index-m.html">
+      <img src="assets/images/logo.png" alt="COVIEN Logo" width="120" height="30" decoding="async">
+    </a>
+    <div class="spacer"></div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+  </header>
+
+  <!-- 抽屉菜单 -->
+  <div class="menu-mask" id="menuMask"></div>
+  <aside class="menu-panel" id="menuPanel" aria-hidden="true">
+    <button class="close" id="menuClose" aria-label="Close menu">✕</button>
+    <h3>Navigation</h3>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#factory">Factory</a>
+    <a href="#faq">FAQ</a>
+    <a href="#partner">Users</a>
+    <a href="#contact">Contact</a>
+    <a href="quote-m.html" style="color:var(--cyan);">⚡ Price Configurator</a>
+  </aside>
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="brand-line">Shenzhen Covien Technology Co., Ltd.</div>
+    <h1>Professional Photo Booth Machine Manufacturer</h1>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="quote-m.html">Get a Quote</a>
+      <a class="btn btn-ghost" href="#products">View Products</a>
+    </div>
+  </section>
+
+  <!-- ============ About ============ -->
+  <section id="about" class="sec">
+    <div class="sec-head">
+      <span class="eyebrow">About Us</span>
+      <h2>Your Photo Booth Should Work. Every Single Time.</h2>
+    </div>
+
+    <div class="card">
+      <p>Shenzhen Covien Technology Co., Ltd., founded in 2022, is a commercial photo booth manufacturer with
+        integrated in-house metal and woodworking production, including laser cutting, CNC machining, welding,
+        painting, and assembly lines.</p>
+      <p>We hold 27+ design and utility patents and support full customization across appearance, function, and
+        packaging. Every unit undergoes 100% power-on and functional testing before shipment.</p>
+      <p>We provide a one-year standard warranty, 7×12 remote technical support, and one-stop procurement for
+        printers and cameras.</p>
+      <img loading="lazy" decoding="async" alt="COVIEN photo booth factory and production line"
+        src="assets/images/about-us.png">
+    </div>
+
+    <div class="card">
+      <h3 style="font-size:16px;">What is Our Goal?</h3>
+      <ul class="bullet">
+        <li>In-house production from sheet metal to finished booth — reliable lead times, no excuses</li>
+        <li>Customization for iPad/camera models, colors, and flight cases with handles &amp; wheels</li>
+        <li>100% power-on test before shipment — plug and play on site</li>
+        <li>One-year warranty, free replacement for damaged parts</li>
+        <li>One-stop procurement — we source printers &amp; cameras for you</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ Products ============ -->
+  <section id="products" class="sec">
+    <div class="sec-head">
+      <span class="eyebrow">Products</span>
+      <h2>Photo Booth Machines</h2>
+      <p>Wooden, metal and mirror styles — customized for your market.</p>
+    </div>
+
+    <div class="product-grid">
+      <a class="product-card" href="https://snaphub.en.alibaba.com" target="_blank" rel="noopener">
+        <div class="ph"><img loading="lazy" decoding="async"
+            alt="Dual sided wooden photo booth with DSLR camera and touchscreen"
+            src="assets/images/speakers/dual-sided-wooden-photo-booth.jpg"></div>
+        <div class="cap">
+          <h4>Dual-sided Vintage Wooden</h4>
+          <span>Built-in PC · 18.5" Touch</span>
+        </div>
+      </a>
+      <a class="product-card" href="https://snaphub.en.alibaba.com" target="_blank" rel="noopener">
+        <div class="ph"><img loading="lazy" decoding="async"
+            alt="Wooden computer photo booth with 15.6 inch touchscreen" src="assets/images/speakers/products (2).jpg">
+        </div>
+        <div class="cap">
+          <h4>Wooden Computer</h4>
+          <span>15.6" Touch · DSLR Support</span>
+        </div>
+      </a>
+      <a class="product-card" href="https://snaphub.en.alibaba.com" target="_blank" rel="noopener">
+        <div class="ph"><img loading="lazy" decoding="async" alt="Metal photo booth machine with touchscreen for events"
+            src="assets/images/speakers/products (5).jpg"></div>
+        <div class="cap">
+          <h4>Metal PC Photo Booth</h4>
+          <span>70" Panel · Custom Colors</span>
+        </div>
+      </a>
+      <a class="product-card" href="https://snaphub.en.alibaba.com" target="_blank" rel="noopener">
+        <div class="ph"><img loading="lazy" decoding="async" alt="COVIEN photo booth product"
+            src="assets/images/speakers/products (4).jpg"></div>
+        <div class="cap">
+          <h4>Photo Booth</h4>
+          <span>View on Alibaba</span>
+        </div>
+      </a>
+      <a class="product-card" href="https://snaphub.en.alibaba.com" target="_blank" rel="noopener">
+        <div class="ph"><img loading="lazy" decoding="async" alt="Full screen mirror photo booth for wedding events"
+            src="assets/images/speakers/products (3).jpg"></div>
+        <div class="cap">
+          <h4>Magic Mirror Booth</h4>
+          <span>Touch Screen · Rental Ready</span>
+        </div>
+      </a>
+      <a class="product-card" href="https://snaphub.en.alibaba.com" target="_blank" rel="noopener">
+        <div class="ph"><img loading="lazy" decoding="async" alt="COVIEN photo booth product"
+            src="assets/images/speakers/products (6).png"></div>
+        <div class="cap">
+          <h4>Photo Booth</h4>
+          <span>View on Alibaba</span>
+        </div>
+      </a>
+      <a class="product-card" href="https://snaphub.en.alibaba.com" target="_blank" rel="noopener">
+        <div class="ph"><img loading="lazy" decoding="async" alt="COVIEN photo booth product"
+            src="assets/images/speakers/products (7).jpeg"></div>
+        <div class="cap">
+          <h4>Photo Booth</h4>
+          <span>View on Alibaba</span>
+        </div>
+      </a>
+      <a class="product-card" href="https://snaphub.en.alibaba.com" target="_blank" rel="noopener">
+        <div class="ph"><img loading="lazy" decoding="async" alt="COVIEN photo booth product"
+            src="assets/images/speakers/products (8).png"></div>
+        <div class="cap">
+          <h4>Photo Booth</h4>
+          <span>View on Alibaba</span>
+        </div>
+      </a>
+      <a class="product-card" href="https://snaphub.en.alibaba.com" target="_blank" rel="noopener">
+        <div class="ph"><img loading="lazy" decoding="async" alt="COVIEN photo booth product"
+            src="assets/images/speakers/products (9).jpeg"></div>
+        <div class="cap">
+          <h4>Photo Booth</h4>
+          <span>View on Alibaba</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ Factory ============ -->
+  <section id="factory" class="sec">
+    <div class="sec-head">
+      <span class="eyebrow">Factory</span>
+      <h2>In-house Production</h2>
+      <p>Laser cutting, CNC, welding, painting and assembly — all under one roof.</p>
+    </div>
+
+    <div class="factory-grid">
+      <div class="ph"><img loading="lazy" decoding="async" alt="COVIEN factory production line"
+          src="assets/images/factory/factory (1).jpg"></div>
+      <div class="ph"><img loading="lazy" decoding="async" alt="COVIEN factory workshop"
+          src="assets/images/factory/factory (7).jpg"></div>
+      <div class="ph"><img loading="lazy" decoding="async" alt="COVIEN factory equipment"
+          src="assets/images/factory/factory (3).jpg"></div>
+      <div class="ph"><img loading="lazy" decoding="async" alt="COVIEN factory assembly"
+          src="assets/images/factory/factory (1).png"></div>
+      <div class="ph"><img loading="lazy" decoding="async" alt="COVIEN factory quality control"
+          src="assets/images/factory/factory (2).png"></div>
+      <div class="ph"><img loading="lazy" decoding="async" alt="COVIEN factory warehouse"
+          src="assets/images/factory/factory (6).png"></div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="sec">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div id="faqList">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="ico">+</span>Why choose Covien?
+        </button>
+        <div class="faq-a">
+          <p>We specialize in commercial Photo Booth equipment manufacturing, providing professional solutions for
+            Photo Booth Rental Companies, Event Companies, and distributors. With our own design, production, and
+            quality control capabilities, we provide stable products, flexible customization, and reliable support.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="ico">+</span>How do you guarantee quality?
+        </button>
+        <div class="faq-a">
+          <p>All products undergo strict quality control, including material inspection, production monitoring, and
+            final function testing. Every Photo Booth is tested for structure, electrical safety, and operation
+            performance before shipment.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="ico">+</span>Do you support OEM customization?
+        </button>
+        <div class="faq-a">
+          <p>Yes, we support customization including color, logo, appearance, screen, printer configuration,
+            packaging, and functions. We help customers develop exclusive Photo Booth products for their local
+            markets.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="ico">+</span>How do you ship the Photo Booth?
+        </button>
+        <div class="faq-a">
+          <p>All Photo Booths are shipped with professional flight cases at no extra cost. The flight case provides
+            strong protection and reduces damage risk during international shipping.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="ico">+</span>What if I need installation support?
+        </button>
+        <div class="faq-a">
+          <p>We provide installation videos, manuals, and online technical support. The modular design allows easy
+            setup, and our team provides continuous after-sales assistance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Users ============ -->
+  <section id="partner" class="sec">
+    <div class="sec-head">
+      <span class="eyebrow">Users</span>
+      <h2>Trusted by Rental &amp; Event Companies</h2>
+    </div>
+
+    <div class="partner-grid partner">
+      <a class="ph partner-box-1" aria-label="Partner logo"></a>
+      <a class="ph partner-box-2" aria-label="Partner logo"></a>
+      <a class="ph partner-box-3" aria-label="Partner logo"></a>
+      <a class="ph partner-box-4" aria-label="Partner logo"></a>
+      <a class="ph partner-box-5" aria-label="Partner logo"></a>
+      <a class="ph partner-box-6" aria-label="Partner logo"></a>
+      <a class="ph partner-box-7" aria-label="Partner logo"></a>
+      <a class="ph partner-box-8" aria-label="Partner logo"></a>
+    </div>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section id="contact" class="sec">
+    <div class="sec-head">
+      <span class="eyebrow">Contact</span>
+      <h2>Get in Touch</h2>
+    </div>
+
+    <div class="contact-card">
+      <h3>Contact</h3>
+      <div class="row-line"><span class="k">Alibaba</span><a href="https://snaphub.en.alibaba.com/" target="_blank"
+          rel="noopener">snaphub.en.alibaba.com</a></div>
+      <div class="row-line"><span class="k">Email</span><a href="mailto:wzy4072@163.com">wzy4072@163.com</a></div>
+      <div class="row-line"><span class="k">Email</span><a href="mailto:stephon4072@gmail.com">stephon4072@gmail.com</a>
+      </div>
+      <div class="row-line"><span class="k">YouTube</span><a href="https://www.youtube.com/@PhotoBoothMax"
+          target="_blank" rel="noopener">@PhotoBoothMax</a></div>
+      <div class="row-line"><span class="k">TikTok</span><a href="https://www.tiktok.com/@CovienPhotoBooth"
+          target="_blank" rel="noopener">@CovienPhotoBooth</a></div>
+      <div class="row-line"><span class="k">WhatsApp</span><b>+86 18565350364</b></div>
+    </div>
+
+    <div class="contact-card">
+      <h3>More</h3>
+      <div class="more-list">
+        <a href="videos.html">Related Videos</a>
+        <a href="PlugStandard.html">Plug Standard</a>
+        <a href="gallery.html">Background Wall Pattern</a>
+        <a href="download.html">Software Download</a>
+        <a href="quote-m.html">⚡ Price Configurator</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p>Designed and Developed by <a href="index-m.html">COVIEN</a></p>
+    <div class="socials">
+      <a href="#" aria-label="Twitter">T</a>
+      <a href="#" aria-label="Facebook">F</a>
+      <a href="#" aria-label="LinkedIn">in</a>
+      <a href="#" aria-label="Google+">G+</a>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <script>
+    (function () {
+      'use strict';
+
+  
